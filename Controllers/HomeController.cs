@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebDev_MiniProject.Models;
 
 namespace WebDev_MiniProject.Controllers;
@@ -14,11 +16,6 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
     {
         return View();
     }
