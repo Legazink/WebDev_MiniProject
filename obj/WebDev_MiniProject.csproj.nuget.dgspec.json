@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aphiw\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {}
+    "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aphiw\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {
+    "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aphiw\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
+        "projectUniqueName": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
         "projectName": "WebDev_MiniProject",
-        "projectPath": "C:\\Users\\Aphiw\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
-        "packagesPath": "C:\\Users\\Aphiw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aphiw\\Documents\\GitHub\\WebDev_MiniProject\\obj\\",
+        "projectPath": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
+        "packagesPath": "C:\\Users\\INK\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aphiw\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\INK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -42,6 +45,18 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

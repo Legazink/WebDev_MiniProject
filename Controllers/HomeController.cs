@@ -15,8 +15,36 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public IActionResult Login()
     {
+        ViewData["Page"] = "Login";
+        return View();
+    }
+
+    public IActionResult Register()
+    {
+        ViewData["Page"] = "Register";
+        return View();
+    }
+
+    public IActionResult HomePage()
+    {
+        ViewData["Page"] = "Homepage";
+        return View();
+    }
+    public IActionResult CreatePost()
+    {
+        ViewData["Page"] = "Create";
+        return View();
+    }
+    public IActionResult MyPost()
+    {
+        ViewData["Page"] = "MyPost";
+        return View();
+    }
+    public IActionResult JoinedPost()
+    {
+        ViewData["Page"] = "Joined";
         return View();
     }
 
