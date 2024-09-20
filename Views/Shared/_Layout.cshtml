@@ -111,17 +111,21 @@
              margin-right:20px;
              border-radius: 40px;
              object-position: 0px 70%;
-       
-
         }
 
-        .card
-        {
+        .container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
             width: 335px;
             height: 560px;
+            margin: 20px; /* เพิ่ม margin รอบการ์ดเพื่อสร้างระยะห่าง */
         }
-        .card-bg 
-        {   
+
+        .card-bg {   
             background-color: white;
             width: 335px;
             height: 470px;
@@ -131,8 +135,7 @@
             text-align: center;
         }
 
-        .image-container 
-        {
+        .image-container {
             width: 260px;
             height: 220px;
             display: inline-table;
@@ -143,12 +146,11 @@
             width: 100%;
             height: 100%;
             border-radius: 20px;
-
         }
 
         .card-content {
             padding: 20px;
-            margin-top:-50px;
+            margin-top: -50px;
         }
 
         .card-content h2 {
@@ -157,11 +159,11 @@
             color: black;
         }
 
-        .card-content ul 
-        {
-            margin-top: 0px;
+        .card-content ul {
+            margin-top: 0;
             text-align: left;
-            margin-bottom: 0px;
+            margin-bottom: 0;
+            padding-left: 10; /* ลบ padding เพื่อให้รายการชิด */
         }
 
         .card-content ul li {
