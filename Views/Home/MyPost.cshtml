@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kemet Post</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card-content ul {
+            list-style-type: none;
+            text-align: left;
+        }
+
+        .card-content ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+        }
+
+        .btn {
+            background-color: #ff7043;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn.close-btn {
+            background-color: #ff7043;
+        }
+
+        .btn.view-btn {
+            background-color: #ff7043;
+        }
+
+        .btn:hover {
+            background-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="image-container">
+        <img src="https://www.base23.com/sites/default/files/kemet.jpg" alt="Kemet Game">
+    </div>
+    <div class="card-content">
+        <h2>KEMET</h2>
+        <ul>
+            <li>เจ้าของ Post: Account name</li>
+            <li>จำนวนสมาชิก: 0/4</li>
+            <li>สถานที่: ห้อง หอชาย A</li>
+            <li>วันที่: 16/09/2567</li>
+            <li>เวลา: 19:00น.</li>
+        </ul>
+    </div>
+    <div class="button-container">
+        <button class="btn close-btn">CLOSE</button>
+        <button class="btn view-btn">VIEW MEMBER</button>
+    </div>
+</div>
+
+
+
+</body>
+</html>
