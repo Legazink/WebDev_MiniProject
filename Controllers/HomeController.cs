@@ -41,7 +41,7 @@ public class HomeController : Controller
                 }
             }
         }
-        ModelState.AddModelError("", "Invalid username or password.");
+        ModelState.AddModelError("", "Invalid Username or Password.");
 
         return View();
     }

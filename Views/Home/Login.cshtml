@@ -169,7 +169,16 @@
     @if (!ViewData.ModelState.IsValid)
     {
         <script>
-            alert("Invalid Username or Password")
+            let errorMessages = [];
+            @foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    <text>errorMessages.push('@error.ErrorMessage');</text>
+                }
+            }
+
+                alert(errorMessages.join("\n"));
         </script>
     }
 
