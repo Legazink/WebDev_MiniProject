@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>RuamtyBG - @ViewData["Page"]</title>
     <style>
         body {
             margin: 0;
-            background-color: gray;
+            background-color: #c9c9c9;
+            font-family: Jaldi, sans-serif;
         }
 
         .container {
@@ -16,7 +18,7 @@
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
 
-        .sidebar {
+        .sidebar_layout {
             grid-area: 1 / 1 / 4 / 2;
             display: flex;
             flex-direction: column;
@@ -26,37 +28,327 @@
             color: white;
             width: 85%;
             height: 100vh;
-            background-color: red;
+            background: #FFAF45;
+            position: sticky;
+            top: 0px;
         }
 
-        .display-board {
+        .display-board 
+        {
             grid-area: 1 / 2 / 2 / 5;
-            background-color: purple;
             width: 100%;
             height: 100%;
             font-size: 144px;
             color: white;
-            text-align: center;
         }
 
         .posts-board {
             grid-area: 2 / 2 / 4 / 5;
-            background-color: orange;
             width: 100%;
             height: 100%;
             font-size: 144px;
             color: white;
             text-align: center;
         }
+        .side_bar
+        {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #FFAF45;
+            color: #673F69;
+        }
+        .icon
+        {
+            width: 50px;
+            height: 50px;
+            margin-top: 40px;
+        }
+        svg
+        {
+            width: 50px;
+            height: 50px;
+            margin-top: 0px;
+            margin-right: 20px;
+            stroke-width: 4px;
+        }
+        .web_name
+        {   
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 0px;
+            
+        }
+        .account_name
+        {
+            font-size: 20px;
+            margin-top: 5px;
+            margin-bottom: 50px;
+            align-items: stretch;
+        }
+        .nav_button
+        {   
+            display: flex;
+            align-items: center;
+            background: #FFAF45;
+            color: #673F69;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 50px;
+            width: 300px;
+            text-align: start;
+            border: 0px;
+            border-radius: 10px;
+            ;
+        }
+        .decoration_pic
+        {
+             width: 100%;
+             height: 300px;
+             object-fit: cover;
+             margin-top:40px;
+             margin-right:20px;
+             border-radius: 40px;
+             object-position: 0px 70%;
+        }
+
+        .container1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 335px;
+            height: 560px;
+            margin: 20px; /* เพิ่ม margin รอบการ์ดเพื่อสร้างระยะห่าง */
+        }
+
+        .card-bg {   
+            background-color: white;
+            width: 335px;
+            height: 470px;
+            border-radius: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .image-container {
+            width: 260px;
+            height: 220px;
+            display: inline-table;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .card-content {
+            padding: 20px;
+            margin-top: -50px;
+        }
+
+        .card-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .card-content ul {
+            margin-top: 0;
+            text-align: left;
+            margin-bottom: 0;
+            padding-left: 10; /* ลบ padding เพื่อให้รายการชิด */
+        }
+
+        .card-content ul li {
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+        }
+
+        .btn {
+                color: white;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 14px;
+                width: 145px;
+                height: 60px;
+                font-weight: bold;
+                font-size: large;;
+        }
+
+        .btn.close-btn {
+            background-color: #ff7043;
+        }
+
+        .btn.view-btn {
+            background-color: #ff7043;
+        }
+
+        .btn:hover {
+            background-color: #ff5722;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="sidebar">1</div>
-        <div class="display-board">2</div>
-        <div class="posts-board">@RenderBody()</div>
-    </div>
 
+        <div class="sidebar_layout">
+            <div class="side_bar">
+                <img class="icon" src="/Picture/Icon.png">
+                <p class="web_name">RUAMTY BG</p>
+                <p class="account_name">Account name</p>
+        
+                <button class="nav_button" id="home_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                      </svg> 
+                       HOME 
+                </button> 
+
+                <button class="nav_button" id="posted_button"  onmouseover="highlight(this)" onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+                      </svg>
+                      MY POSTED
+                </button>
+
+                <button class="nav_button" id="create_button"  onmouseover="highlight(this)" onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                      </svg>
+                      CREATE POST
+                </button>
+
+                <button class="nav_button" id="joined_button"  onmouseover="highlight(this)" onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                        <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
+                      </svg>
+                      JOINED POST
+                </button>
+
+                <button class="nav_button" id="logout_button"  onmouseover="highlight(this)" onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                      </svg>
+                      LOGOUT
+                </button>
+            </div>
+        </div>
+
+        <div class="display-board">
+            <img class="decoration_pic" src="/Picture/bg 2_blur.jpg">
+        </div>
+
+        <div class="posts-board">@RenderBody()</div>
+
+    </div>
+        <script>
+        function highlight(obj)
+        {   
+            console.log(obj.style.background)
+            if (obj.style.background != "rgb(255, 255, 255)")
+                {
+                    obj.style.color = "#D74B76";
+                    obj.style.background = "#FFAF45";
+                    obj.style.borderBottom = "thick solid #D74B76";
+                }
+        }
+
+        function unhighlight(obj, state=false)
+        {   
+            if(state)
+                {   
+                    obj.style.color = "";
+                    obj.style.background = "#FFAF45";
+                    obj.style.borderBottom = ""; 
+                }
+            obj.style.color = "";
+            obj.style.borderBottom = "";
+        }
+
+        function clicked(id)
+        {   
+            switch(id)
+            {
+                case "home_button":
+                        nav_botton = ["posted_button","create_button","joined_button"]
+
+                        obj = document.getElementById('home_button');
+                        console.log(obj);
+                        
+                        for (let i=0;  i<=nav_botton.length; i++)
+                            {
+                                obj = document.getElementById(nav_botton[i]);
+                                unhighlight(obj,true)
+                            }
+                        break;
+                    
+                    case "posted_button": 
+                        nav_botton = ["home_button","create_button","joined_button"]
+
+                        obj = document.getElementById('posted_button');                     
+                        console.log(obj);
+                        obj.style.color = "#D74B76";
+                        obj.style.background = "#FFFFFF";
+
+                        for (let i=0;  i<=nav_botton.length; i++)
+                            {
+                                obj = document.getElementById(nav_botton[i]);
+                                unhighlight(obj,true)
+                            }
+                        break;
+                    
+                    case "create_button":
+                        nav_botton = ["home_button","posted_button","joined_button"]
+
+                        obj = document.getElementById('create_button');                      
+                        console.log(obj);
+                        obj.style.color = "#D74B76";
+                        obj.style.background = "#FFFFFF";
+
+                        for (let i=0;  i<=nav_botton.length; i++)
+                            {
+                                obj = document.getElementById(nav_botton[i]);
+                                unhighlight(obj,true)
+                            }
+                        break;
+                    
+                    case "joined_button":
+                        nav_botton = ["home_button","posted_button","create_button"]
+                        obj = document.getElementById('joined_button');                       
+                        console.log(obj); 
+                        obj.style.color = "#D74B76";
+                        obj.style.background = "#FFFFFF";
+                        
+                        for (let i=0;  i<=nav_botton.length; i++)
+                            {
+                                obj = document.getElementById(nav_botton[i]);
+                                unhighlight(obj,true)
+                            }
+                        break;
+
+            }
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

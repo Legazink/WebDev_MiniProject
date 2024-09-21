@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 using WebDev_MiniProject.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("RuamtyDB")));
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetConnectionString("RuamtyDB")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=createpost}/{id?}");
+    pattern: "{controller=Home}/{action=HomePage}/{id?}");
 
 app.Run();

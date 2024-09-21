@@ -4105,19 +4105,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\INK\\.nuget\\packages\\": {}
+    "C:\\Users\\job45\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
+      "projectUniqueName": "C:\\Users\\job45\\OneDrive\\Desktop\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
       "projectName": "WebDev_MiniProject",
-      "projectPath": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
-      "packagesPath": "C:\\Users\\INK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\obj\\",
+      "projectPath": "C:\\Users\\job45\\OneDrive\\Desktop\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
+      "packagesPath": "C:\\Users\\job45\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\job45\\OneDrive\\Desktop\\WebDev_MiniProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\INK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\job45\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
