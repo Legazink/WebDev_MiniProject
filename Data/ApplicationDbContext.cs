@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WebDev_MiniProject.Models.Entities;
+using WebDev_MiniProject.Models;
 
 namespace WebDev_MiniProject.Data
 {

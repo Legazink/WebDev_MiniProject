@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,12 @@
             background-color: #D9D9D9;
             font-family: Jaldi, sans-serif;
         }
+
         .block {
             display: flex;
             align-items: center;
             flex-direction: column;
+            using WebDev_MiniProject.Models.Entities;
             width: 90%;
             max-width: 350px;
             height: auto;
@@ -30,9 +33,11 @@
             border-radius: 5%;
             padding: 20px;
         }
+
         .block .form {
             width: 100%;
         }
+
         .block h1 {
             font-size: 2rem;
             text-align: center;
@@ -40,6 +45,7 @@
             margin-top: 0;
             font-weight: bold;
         }
+
         .block .input-box {
             position: relative;
             width: 100%;
@@ -48,7 +54,8 @@
             display: flex;
             align-items: center;
         }
-        .input-box input{
+
+        .input-box input {
             width: 100%;
             height: 40px;
             background: transparent;
@@ -58,18 +65,22 @@
             border-radius: 40px;
             padding-left: 20px;
         }
+
         .input-box .icon {
             position: absolute;
             top: 50%;
             right: 20px;
             transform: translateY(-50%);
         }
+
         .block .register-link {
             text-align: center;
         }
+
         .block .register-link a {
             color: #673F69;
         }
+
         .block .btn {
             display: block;
             margin: 40px auto 0 auto;
@@ -84,6 +95,7 @@
             color: white;
             font-weight: bold;
         }
+
         @@media (max-width: 768px) {
             .block {
                 width: 50%;
@@ -118,38 +130,49 @@
                 font-size: 0.8rem;
             }
         }
-
     </style>
 </head>
+
 <body>
     <div class="block">
         <h1>LOGIN</h1>
-        <form class="form" action="/login" method="POST">
+        <form class="form" asp-controller="Home" asp-action="Login" method="POST">
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" placeholder="Username" name="username" required>
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                     </svg>
                 </div>
             </div>
 
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" name="password" required>
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
-                      </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                    </svg>
                 </div>
             </div>
-            
+
             <div class="register-link">
                 <p>Don't have an account? <a asp-action="Register">Register</a></p>
             </div>
 
             <button type="submit" class="btn">LOGIN</button>
-        </form> 
+        </form>
     </div>
 
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <script>
+            alert("Invalid Username or Password")
+        </script>
+    }
+
 </body>
+
 </html>

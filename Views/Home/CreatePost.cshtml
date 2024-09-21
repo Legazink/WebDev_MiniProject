@@ -1,261 +1,36 @@
-﻿@{
-    Layout = null;
-}
+﻿<link rel="stylesheet" href="~/css/CreatPost.css" asp-append-version="true" />
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatePost</title>
-    <style>
-        body {
-            font-family: Jaldi, sans-serif;
-        }
-
-        .create-btn {
-            background-color: orangered;
-            color: white;
-            border: none;
-            margin: 20px;
-            padding-top: 5px;
-            padding: 10px 25px;
-            font-size: 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: bold;
-
-        }
-
-        .form-group h4 {
-            margin-bottom: 5px;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: auto;
-            background-color: #7565B7;
-        }
-
-        .contain-date {
-            margin-left: auto;
-            margin-right: 20px;
-        }
-        .img {
-            margin: 20px;
-            border-radius: 1em;
-        }
-
-        .top-zone {
-            position: relative;
-            background-color: #6F9595;
-            grid-row-start: 1;
-            grid-column-start: 1;
-            grid-row-end: 5;
-            grid-column-end: 6;
-        }
-
-        .top-grid{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: auto 
-        }
-
-        .top-item1{
-            grid-area: 1 / 1 / 2 / 2;
-        }
-
-        .top-item2 {
-            grid-area: 1 / 2 / 2 / 3;
-        }
-
-        .top-item3 {
-            grid-area: 1 / 7 / 2 / 8;
-            padding-top: 50px;
-            margin-right: 160px;
-        }
-
-        .top-item4 {
-            grid-area: 1 / 6 / 1 / 8;
-        }
-
-
-        .bottom-zone {
-            position: relative;
-            background-color: #B75BB6;
-            grid-row-start: 5;
-            grid-column-start: 1;
-            grid-row-end: 7;
-            grid-column-end: 6;
-            
-        }
-
-        .dropdown {
-            min-width: 10em;
-            width: 200px;
-            position: relative;
-            margin-top: 2.7em;
-        }
-
-        .dropdown * {
-            box-sizing: border-box;
-        }
-
-        .select {
-            background-color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 2px solid;
-            padding: 1em;
-            cursor: pointer;
-            transition: background 0.3s;
-            position: relative;
-        }
-
-        .caret {
-            position: absolute;
-            right: 5px;
-            margin: 10px;
-            width: 0;
-            height: 0;
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 12px solid black;
-            transition: 0.3s;
-        }
-
-        .caret-rotate {
-            transform: rotate(180deg);
-        }
-
-        .menu {
-            list-style-type: none;
-            padding: 0.2em 0.5em;
-            background: #d9d9d9;
-            border: 1px #363a43 solid;
-            box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-            color: black;
-            position: absolute;
-            top: 2.5em;
-            left: 50%;
-            width: 100%;
-            transform: translateX(-50%);
-            display: none;
-            transition: 0.2s;
-            z-index: 1;
-        }
-
-        .menu li:before {
-            content: '•';
-            color: black;
-            font-size: 20px;
-            padding-right: 10px;
-            padding-left: 10px
-        }
-
-        .menu li {
-            margin: 0.3em 0;
-            cursor: pointer;
-        }
-
-        .menu li:hover {
-            background: #616161;
-            color: white;
-            opacity: 60%;
-        }
-
-        .active {
-            background: #23242a;
-        }
-
-        .menu-open {
-            display: block;
-            opacity: 1;
-        }
-
-        .form-group {
-            margin-left: 10px;
-            font-size: 16px;
-        }
-
-        .form-control {
-            border-radius: 1em;
-            block-size: 2.5em;
-        }
-
-        .form-control-date {
-            padding: 0.3em;
-            border-radius: 1em;
-            block-size: 3em;
-        }
-        
-        .form-grid{
-            display: grid;
-            grid-template-columns: 50px 180px;
-            grid-template-rows: 1fr 1fr 1fr;
-            align-items: end;
-            justify-items: center;
-            margin-bottom: 20px;
-        }
-
-        .form-item-1{
-            grid-area: 1 / 2 / 2 / 3;
-        }
-
-        .form-item-2 {
-            grid-area: 2 / 2 / 3 / 3;
-        }
-
-        .form-item-3 {
-            grid-area: 3 / 2 / 4 / 3;
-            justify-self: start;
-        }
-
-        .logo-1 {
-            grid-area: 1 / 1 / 2 / 2;
-        }
-
-        .create-btn {
-            position: absolute;
-            bottom: 0px;
-            right: 0px;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container">
-
-        <div class="top-zone">
-            <div class="top-grid">
-                <div class="top-item1">
-                    <img id="game-img" src="https://img2.pic.in.th/pic/boardgame.th.jpg" class="img" />
-                    </div>
-                
-                <div class="dropdown top-item2">
-                    <div class="select">
-                        <span class="selected">CHOOSE GAME</span>
-                        <div class="caret"></div>
-                    </div>
-                    <ul class="menu">
-                        <li data-image="https://img2.pic.in.th/pic/KEMET.th.jpg">KEMET</li>
-                        <li data-image="https://img2.pic.in.th/pic/poker.th.jpg">POKER</li>
-                        <li data-image="https://img5.pic.in.th/file/secure-sv1/DETECTIVE-CLUB.th.jpg">DETECTIVE CLUB</li>
-                        <li data-image="https://img2.pic.in.th/pic/WERE-WOLF.th.jpg">WERE WOLF</li>
-                        <li data-image="https://img2.pic.in.th/pic/Luckroll.th.jpg">LUCK & ROLL</li>
-                    </ul>
+<div class="container-post">
+    <div class="top-zone">
+        <div class="top-grid">
+            <div class="top-item1">
+                <img id="game-img" src="https://img2.pic.in.th/pic/boardgame.th.jpg" class="img" />
+            </div>
+            <div class="dropdown top-item2">
+                <div class="select">
+                    <span class="selected">CHOOSE GAME</span>
+                    <div class="caret"></div>
                 </div>
-                <div class="top-item3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
-                        <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z" />
-                        <path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                <ul class="menu">
+                    <li data-image="https://img2.pic.in.th/pic/KEMET.th.jpg">KEMET</li>
+                    <li data-image="https://img2.pic.in.th/pic/poker.th.jpg">POKER</li>
+                    <li data-image="https://img5.pic.in.th/file/secure-sv1/DETECTIVE-CLUB.th.jpg">DETECTIVE CLUB
+                    </li>
+                    <li data-image="https://img2.pic.in.th/pic/WERE-WOLF.th.jpg">WERE WOLF</li>
+                    <li data-image="https://img2.pic.in.th/pic/Luckroll.th.jpg">LUCK & ROLL</li>
+                </ul>
+            </div>
+            <div class="top-item3">
+                <div class="date-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                        class="bi bi-calendar3" viewBox="0 0 16 16">
+                        <path
+                            d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z" />
+                        <path
+                            d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                     </svg>
                 </div>
-                <div class="contain-date top-item4">
+                <div class="contain-date">
                     <div class="form-group">
                         <h4>DATE</h4>
                         <input class="form-control-date" type="date" placeholder="select DateTime" />
@@ -263,77 +38,44 @@
                 </div>
             </div>
         </div>
-        <div class="bottom-zone">
-            <form method="post" asp-controller="Home" asp-action="Create">
-                <div class="form-grid">
-                    <div class="form-group form-item-1">
-                        <h4>MEMBER</h4>
-                        <input class="form-control" type="text" placeholder="กรอกจำนวนสมาชิก" />
-                    </div>
-                    <div class="form-group form-item-2">
-                        <h4>PLACE</h4>
-                        <input class="form-control" type="text" placeholder="กรอกสถานที่" />
-                    </div>
-                    <div class="form-group form-item-3">
-                            <h4>TIME</h4>
-                            <input class="form-control" type="time"/>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-people-fill logo-1" viewBox="0 0 16 16">
-                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
-                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                    </svg>
-                </div>
-                <div>
-                    <button type="submit" class="create-btn">CREATE</button>
-                </div>
-            </form>
-        </div>
-
     </div>
-    <script>
+    <div class="bottom-zone">
+        <form method="post" asp-controller="Home" asp-action="Create">
+            <div class="form-grid">
+                <div class="form-group form-item-1">
+                    <h4>MEMBER</h4>
+                    <input class="form-control" type="text" placeholder="กรอกจำนวนสมาชิก" />
+                </div>
+                <div class="form-group form-item-2">
+                    <h4>PLACE</h4>
+                    <input class="form-control" type="text" placeholder="กรอกสถานที่" />
+                </div>
+                <div class="form-group form-item-3">
+                    <h4>TIME</h4>
+                    <input class="form-control" type="time" />
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                    class="bi bi-people-fill logo-1" viewBox="0 0 16 16">
+                    <path
+                        d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-geo-alt"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-clock"
+                    viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                </svg>
+            </div>
+            <div>
+                <button type="submit" class="create-btn">CREATE</button>
+            </div>
+        </form>
+    </div>
 
-        const dropdowns = document.querySelectorAll('.dropdown');
-
-        dropdowns.forEach(dropdowns => {
-            const select = dropdowns.querySelector('.select');
-            const caret = dropdowns.querySelector('.caret');
-            const menu = dropdowns.querySelector('.menu');
-            const options = dropdowns.querySelectorAll('.menu li');
-            const selected = dropdowns.querySelector('.selected');
-            const img = document.getElementById('game-img')
-
-            select.addEventListener('click', () => {
-                select.classList.toggle('select-clicked');
-                caret.classList.toggle('caret-rotate');
-                menu.classList.toggle('menu-open');
-            });
-
-            options.forEach(options => {
-                options.addEventListener('click', () => {
-                    selected.innerText = options.innerText;
-                    select.classList.remove('select-clicked');
-                    caret.classList.remove('caret-rotate');
-                    menu.classList.remove('menu-open');
-
-                    const Newimg = options.getAttribute('data-image');
-                    img.src = Newimg;
-                    options.forEach(option => {
-                        option.classList.remove('active');
-                    });
-                    option.classList.add('active');
-                });
-            });
-        });
-
-
-    </script>
-</body>
-
-</html>
+</div>
+<script src="~/js/CreatPost.js" asp-append-version="true"></script>

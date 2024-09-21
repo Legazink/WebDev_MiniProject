@@ -2,22 +2,47 @@ using System.Diagnostics;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using WebDev_MiniProject.Data;
 using WebDev_MiniProject.Models;
+using WebDev_MiniProject.Models.Entities;
 
 namespace WebDev_MiniProject.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly ApplicationDbContext _context;
+    public HomeController(ApplicationDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
+    [HttpGet]
     public IActionResult Login()
     {
         ViewData["Page"] = "Login";
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(string username, string password)
+    {
+        username = username.ToLower();
+        ViewData["Page"] = "Login";
+        var accounts = await _context.Accounts.ToListAsync();
+        foreach (var account in accounts)
+        {
+            if (account.Username == username)
+            {
+                if (account.Password == password)
+                {
+                    return RedirectToAction("HomePage", "Home");
+                }
+            }
+        }
+        ModelState.AddModelError("", "Invalid username or password.");
+
         return View();
     }
 
