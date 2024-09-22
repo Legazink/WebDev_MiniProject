@@ -206,8 +206,7 @@
                 <p class="account_name">Account name</p>
 
                 <form asp-controller="Home" asp-action="HomePage">
-                    <button class="nav_button" id="home_button" onmouseover="highlight(this) 
-                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <button class="nav_button" id="home_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-house" viewBox="0 0 16 16">
                             <path
@@ -218,8 +217,7 @@
                 </form>
 
                 <form asp-controller="Home" asp-action="MyPost">
-                    <button class="nav_button" id="posted_button" onmouseover="highlight(this)"
-                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <button class="nav_button" id="posted_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-card-list" viewBox="0 0 16 16">
                             <path
@@ -232,8 +230,7 @@
                 </form>
 
                 <form asp-controller="Home" asp-action="CreatePost">
-                    <button type="submit" class="nav_button" id="create_button" onmouseover="highlight(this)"
-                        onmouseleave="unhighlight(this)">
+                    <button type="submit" class="nav_button" id="create_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-plus-square" viewBox="0 0 16 16">
                             <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
@@ -244,8 +241,7 @@
                 </form>
 
                 <form asp-controller="Home" asp-action="JoinedPost">
-                    <button class="nav_button" id="joined_button" onmouseover="highlight(this)"
-                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <button class="nav_button" id="joined_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-card-checklist" viewBox="0 0 16 16">
                             <path
@@ -258,8 +254,7 @@
                 </form>
 
                 <form asp-controller="Home" asp-action="Register">
-                    <button class="nav_button" id="logout_button" onmouseover="highlight(this)"
-                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                    <button class="nav_button" id="logout_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -283,16 +278,14 @@
     </div>
     <script>
         function highlight(obj) {
-            console.log(obj.style.background)
-            if (obj.style.background != "rgb(255, 255, 255)") {
                 obj.style.color = "#D74B76";
-                obj.style.background = "#FFAF45";
+                obj.style.background = "#FFBF6A";
                 obj.style.borderBottom = "thick solid #D74B76";
             }
-        }
 
         function unhighlight(obj) {
             obj.style.color = "";
+            obj.style.background = "#FFAF45";
             obj.style.borderBottom = "";
         }
     </script>
