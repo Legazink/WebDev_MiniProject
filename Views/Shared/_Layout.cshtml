@@ -109,12 +109,14 @@
         .container1 {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: flex-start;
+            margin-right: 20px;
         }
 
         .card {
             width: 300px;
             height: 560px;
+            padding: 29px;
         }
 
         .card-bg {
@@ -127,7 +129,7 @@
         }
 
         .image-container {
-            width: 260px;
+            width: 230px;
             height: 220px;
             display: inline-table;
             margin-top: 20px;
@@ -203,63 +205,72 @@
                 <p class="web_name">RUAMTY BG</p>
                 <p class="account_name">Account name</p>
 
-                <button class="nav_button" id="home_button" onmouseover="highlight(this)"
-                    onmouseleave="unhighlight(this)" onclick="clicked(id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-house" viewBox="0 0 16 16">
-                        <path
-                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
-                    </svg>
-                    HOME
-                </button>
+                <form asp-controller="Home" asp-action="HomePage">
+                    <button class="nav_button" id="home_button" onmouseover="highlight(this) 
+                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-house" viewBox="0 0 16 16">
+                            <path
+                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                        </svg>
+                        HOME
+                    </button>
+                </form>
 
-                <button class="nav_button" id="posted_button" onmouseover="highlight(this)"
-                    onmouseleave="unhighlight(this)" onclick="clicked(id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-card-list" viewBox="0 0 16 16">
-                        <path
-                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
-                        <path
-                            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
-                    </svg>
-                    MY POSTED
-                </button>
+                <form asp-controller="Home" asp-action="MyPost">
+                    <button class="nav_button" id="posted_button" onmouseover="highlight(this)"
+                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-card-list" viewBox="0 0 16 16">
+                            <path
+                                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                            <path
+                                d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
+                        </svg>
+                        MY POSTED
+                    </button>
+                </form>
 
-                <button class="nav_button" id="create_button" onmouseover="highlight(this)"
-                    onmouseleave="unhighlight(this)" onclick="clicked(id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-plus-square" viewBox="0 0 16 16">
-                        <path
-                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
-                        <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-                    </svg>
-                    CREATE POST
-                </button>
+                <form asp-controller="Home" asp-action="CreatePost">
+                    <button type="submit" class="nav_button" id="create_button" onmouseover="highlight(this)"
+                        onmouseleave="unhighlight(this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-plus-square" viewBox="0 0 16 16">
+                            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                        </svg>
+                        CREATE POST
+                    </button>
+                </form>
 
-                <button class="nav_button" id="joined_button" onmouseover="highlight(this)"
-                    onmouseleave="unhighlight(this)" onclick="clicked(id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-card-checklist" viewBox="0 0 16 16">
-                        <path
-                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
-                        <path
-                            d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
-                    </svg>
-                    JOINED POST
-                </button>
+                <form asp-controller="Home" asp-action="JoinedPost">
+                    <button class="nav_button" id="joined_button" onmouseover="highlight(this)"
+                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-card-checklist" viewBox="0 0 16 16">
+                            <path
+                                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                            <path
+                                d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0" />
+                        </svg>
+                        JOINED POST
+                    </button>
+                </form>
 
-                <button class="nav_button" id="logout_button" onmouseover="highlight(this)"
-                    onmouseleave="unhighlight(this)" onclick="clicked(id)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
-                        <path fill-rule="evenodd"
-                            d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-                    </svg>
-                    LOGOUT
-                </button>
+                <form asp-controller="Home" asp-action="Register">
+                    <button class="nav_button" id="logout_button" onmouseover="highlight(this)"
+                        onmouseleave="unhighlight(this)" onclick="clicked(id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                            <path fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                        </svg>
+                        LOGOUT
+                    </button>
+                </form>
+
             </div>
         </div>
 
@@ -280,72 +291,9 @@
             }
         }
 
-        function unhighlight(obj, state = false) {
-            if (state) {
-                obj.style.color = "";
-                obj.style.background = "#FFAF45";
-                obj.style.borderBottom = "";
-            }
+        function unhighlight(obj) {
             obj.style.color = "";
             obj.style.borderBottom = "";
-        }
-
-        function clicked(id) {
-            switch (id) {
-                case "home_button":
-                    nav_botton = ["posted_button", "create_button", "joined_button"]
-
-                    obj = document.getElementById('home_button');
-                    console.log(obj);
-
-                    for (let i = 0; i <= nav_botton.length; i++) {
-                        obj = document.getElementById(nav_botton[i]);
-                        unhighlight(obj, true)
-                    }
-                    break;
-
-                case "posted_button":
-                    nav_botton = ["home_button", "create_button", "joined_button"]
-
-                    obj = document.getElementById('posted_button');
-                    console.log(obj);
-                    obj.style.color = "#D74B76";
-                    obj.style.background = "#FFFFFF";
-
-                    for (let i = 0; i <= nav_botton.length; i++) {
-                        obj = document.getElementById(nav_botton[i]);
-                        unhighlight(obj, true)
-                    }
-                    break;
-
-                case "create_button":
-                    nav_botton = ["home_button", "posted_button", "joined_button"]
-
-                    obj = document.getElementById('create_button');
-                    console.log(obj);
-                    obj.style.color = "#D74B76";
-                    obj.style.background = "#FFFFFF";
-
-                    for (let i = 0; i <= nav_botton.length; i++) {
-                        obj = document.getElementById(nav_botton[i]);
-                        unhighlight(obj, true)
-                    }
-                    break;
-
-                case "joined_button":
-                    nav_botton = ["home_button", "posted_button", "create_button"]
-                    obj = document.getElementById('joined_button');
-                    console.log(obj);
-                    obj.style.color = "#D74B76";
-                    obj.style.background = "#FFFFFF";
-
-                    for (let i = 0; i <= nav_botton.length; i++) {
-                        obj = document.getElementById(nav_botton[i]);
-                        unhighlight(obj, true)
-                    }
-                    break;
-
-            }
         }
     </script>
 

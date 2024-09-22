@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tXHtY6yfkWk0JRisxPQYAZMmJr5teaFf42KC3tpV41o=",
+  "Hash": "zKT5r/KPRYykWPsq78Q6AuovHJDo/1WCpp1jZP19Pts=",
   "Source": "WebDev_MiniProject",
   "BasePath": "_content/WebDev_MiniProject",
   "Mode": "Default",
@@ -1290,12 +1290,12 @@
       "OriginalItemSpec": "wwwroot\\Picture\\Icon.png"
     },
     {
-      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\kemet.jpg",
+      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\kemet new.jpg",
       "SourceId": "WebDev_MiniProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\",
       "BasePath": "_content/WebDev_MiniProject",
-      "RelativePath": "Picture/kemet.jpg",
+      "RelativePath": "Picture/kemet new.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1306,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Picture\\kemet.jpg"
+      "OriginalItemSpec": "wwwroot\\Picture\\kemet new.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\luck and roll.jpg",
