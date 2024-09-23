@@ -46,10 +46,20 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet]
     public IActionResult Register()
     {
         ViewData["Page"] = "Register";
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult Register(Account account)
+    {
+        ViewData["Page"] = "Register";
+        _context.Add(account);
+        _context.SaveChanges();
+        return RedirectToAction("Login");
     }
 
     public IActionResult HomePage()

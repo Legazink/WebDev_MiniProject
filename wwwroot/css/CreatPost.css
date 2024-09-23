@@ -21,7 +21,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
-    background-color: #7565B7;
+    background-color: #FFFFFF;
+    border-radius: 20px;
 }
 
 .contain-date {
@@ -37,7 +38,6 @@
 
 .top-zone {
     position: relative;
-    background-color: #FFFFFF;
     grid-row-start: 1;
     grid-column-start: 1;
     grid-row-end: 5;
@@ -79,7 +79,6 @@
 
 .bottom-zone {
     position: relative;
-    background-color: #FFFFFF;
     grid-row-start: 5;
     grid-column-start: 1;
     grid-row-end: 7;
@@ -88,7 +87,6 @@
 }
 
 .dropdown {
-    /* min-width: 10em; */
     width: 250px;
     position: relative;
     top: 50px;
@@ -152,7 +150,6 @@
 }
 
 .menu li {
-    /* margin: 0.3em 0; */
     cursor: pointer;
 }
 
@@ -183,6 +180,7 @@
     align-items: end;
     justify-items: center;
     margin-bottom: 20px;
+    margin-left:25px;
 }
 
 .form-item-1 {
@@ -210,4 +208,12 @@
 
 .date-icon{
     margin-right: -12px;
+    margin-top: 15px;
+}
+
+.form-control{
+    width: 100%; 
+    height: 30px; 
+    padding: 10px;
+    box-sizing: border-box; 
 }

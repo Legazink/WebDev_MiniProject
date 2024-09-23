@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,26 +33,26 @@
             padding: 20px;
         }
 
-            .block .form {
-                width: 100%;
-            }
+        .block .form {
+            width: 100%;
+        }
 
-            .block h1 {
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 40px;
-                margin-top: 0;
-                font-weight: bold;
-            }
+        .block h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 0;
+            font-weight: bold;
+        }
 
-            .block .input-box {
-                position: relative;
-                width: 100%;
-                height: auto;
-                margin-bottom: 20px;
-                display: flex;
-                align-items: center;
-            }
+        .block .input-box {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
 
         .input-box input {
             width: 100%;
@@ -75,9 +76,9 @@
             text-align: center;
         }
 
-            .block .register-link a {
-                color: #673F69;
-            }
+        .block .register-link a {
+            color: #673F69;
+        }
 
         .block .btn {
             display: block;
@@ -100,13 +101,13 @@
                 max-width: none;
             }
 
-                .block h1 {
-                    font-size: 1.5rem;
-                }
+            .block h1 {
+                font-size: 1.5rem;
+            }
 
-                .block .btn {
-                    font-size: 0.9rem;
-                }
+            .block .btn {
+                font-size: 0.9rem;
+            }
         }
 
         @@media (max-width: 480px) {
@@ -115,9 +116,9 @@
                 /* padding: 15px; */
             }
 
-                .block h1 {
-                    font-size: 1.5rem;
-                }
+            .block h1 {
+                font-size: 1.5rem;
+            }
 
             .input-box input {
                 padding-left: 30px;
@@ -128,27 +129,30 @@
                 font-size: 0.8rem;
             }
         }
-
     </style>
 </head>
+
 <body>
     <div class="block">
         <h1>REGISTER</h1>
-        <form class="form" action="/login" method="POST">
+        <form class="form" asp-action="Register" method="POST">
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" placeholder="Username" name="Username" required>
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                     </svg>
                 </div>
             </div>
 
             <div class="input-box">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" name="Password" required>
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-lock-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
                     </svg>
                 </div>
             </div>
@@ -162,4 +166,5 @@
     </div>
 
 </body>
+
 </html>
