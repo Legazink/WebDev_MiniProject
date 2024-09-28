@@ -17,40 +17,37 @@
 
         .container {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 200px 1fr;
+            grid-template-columns: 200px 1fr 1fr 1fr;
         }
 
         .sidebar_layout {
             grid-area: 1 / 1 / 4 / 2;
+            
+        }
+
+        .display-board {
+                grid-area: 1 / 2 / 2 / 5;
+                width: 100%;
+                margin-top: 20px;
+        }
+
+        .posts-board {
+            grid-area: 2 / 2 / 3 / 5;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sidebar {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            width: 85%;
+            justify-content: flex-start;
+            width: 100%;
             height: 100vh;
             background: #FFAF45;
             position: sticky;
             top: 0px;
-            padding: 10px;
-        }
-
-        .display-board {
-            grid-area: 1 / 2 / 2 / 5;
-            width: 100%;
-            height: 100%;
-            margin-bottom: 20px;
-        }
-
-        .posts-board {
-            grid-area: 2 / 2 / 4 / 5;
-            width: 100%;
-            height: 100%;
-        }
-
-        .side_bar {
-            background: #FFAF45;
-            color: #673F69;
-            text-align: center;
         }
 
         .icon {
@@ -60,26 +57,32 @@
         }
 
         svg {
-            width: 50px;
-            height: 50px;
+            width: 20px;
+            height: 20px;
             margin-top: 0px;
-            margin-right: 20px;
+            padding-left: 20px; 
+            padding-right: 10px;
             stroke-width: 4px;
         }
 
         .web_name {
-            font-size: 36px;
+            font-size: x-large;
             font-weight: bold;
             margin-top: 10px;
             margin-bottom: 0px;
-
+            color: #673F69;
         }
 
         .account_name {
-            font-size: 20px;
+            font-size: large;
             margin-top: 5px;
             margin-bottom: 50px;
             align-items: stretch;
+            color: #673F69
+        }
+
+        .nav_item{
+            width: 100%; 
         }
 
         .nav_button {
@@ -87,23 +90,24 @@
             align-items: center;
             background: #FFAF45;
             color: #673F69;
-            font-size: 25px;
+            font-size: medium;
             font-weight: bold;
-            margin-bottom: 45px;
-            width: 300px;
-            text-align: start;
+            text-align: left; 
+            width: 100%; 
+            margin-bottom: 40px;
             border: 0px;
-            border-radius: 10px;
-            ;
+            border-radius: 0px 10px 10px 0px;
         }
 
+
         .decoration_pic {
-            width: 100%;
-            height: 300px;
+            width: 97%;
+            height: 100%;
             object-fit: cover;
-            margin-top: 40px;
             border-radius: 40px;
-            object-position: 0px 70%;
+            object-position: 0px 80%;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         .container1 {
@@ -111,12 +115,16 @@
             flex-wrap: wrap;
             justify-content: flex-start;
             margin-right: 20px;
+            margin-top: 20px;
+            height: 480px; 
+            overflow-y: scroll; 
+            overflow-x: hidden; 
         }
 
         .card {
-            width: 250px;
-            height: 560px;
-            padding: 29px;
+            width: 265px;
+            height: 464px;
+            margin: 10px 67px;
         }
 
         .card-bg {
@@ -129,7 +137,7 @@
         }
 
         .image-container {
-            width: 210px;
+            width: 180px;
             height: 180px;
             display: inline-table;
             margin-top: 20px;
@@ -144,7 +152,7 @@
         .card-content {}
 
         .card-content h2 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 10px;
             color: black;
         }
@@ -154,12 +162,11 @@
             text-align: left;
             margin-bottom: 0;
             padding-left: 10;
-            /* ลบ padding เพื่อให้รายการชิด */
         }
 
         .card-content ul li {
             margin-bottom: 8px;
-            font-size: 18px;
+            font-size: 15px;
             color: #333;
         }
 
@@ -193,6 +200,195 @@
         .btn:hover {
             background-color: #ff5722;
         }
+
+
+        /* Responsive Styles */
+         @@media only screen and (max-width: 1400px) {
+             .card {
+                margin: 10px 50px;
+            }
+
+            .container1 {
+                height: 800px;
+            }
+
+         }
+
+
+        @@media only screen and (max-width: 1024px) {
+
+            .decoration_pic {
+                width: 90%;
+            }
+
+            .container1 {
+                height: 510px;
+                margin: 10px 67px;
+            }
+
+            .card {
+                width: 700px;
+                height: fit-content;
+                display: flex;
+            }
+
+            .card-bg {
+                width: 490px;
+                height: fit-content;
+                display: flex;
+            }
+
+            .image-container {
+                margin: 20px;
+
+            }
+
+            .card-content h2 {
+                font-size: 20px;
+                text-align: left;
+                margin-left: 23px;
+            }
+
+            .button-container {
+                justify-content: center;
+                align-self: center;
+            }
+
+        }
+
+        @@media only screen and (max-width: 768px) {
+
+            .decoration_pic {
+                width: 87%;
+            }
+
+            .container1 {
+                height: 510px;
+                margin: 10px 40px;
+            }
+
+            .card {
+                width: 700px;
+                height: fit-content;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .card-bg {
+                width: 357px;
+                height: fit-content;
+                display: flex;
+            }
+
+            .image-container {
+                margin: 20px;
+                width: 130px;
+                height: 130px;
+            }
+
+            .card-content h2 {
+                font-size: 20px;
+                text-align: left;
+                margin-left: -7px;
+            }
+
+            .card-content ul li {
+                margin-bottom: 8px;
+                font-size: 15px;
+                color: #333;
+            }
+
+            .button-container {
+                justify-content: center;
+                align-self: center;
+            }
+
+        }
+
+        @@media only screen and (max-width: 480px) {
+
+           .container {
+                grid-template-rows: 130px 1fr;
+                grid-template-columns: 100px 1fr 1fr 1fr;
+            }
+
+            .web_name{
+                font-size: small;
+            }
+
+            .account_name{
+                font-size: smaller;
+                margin-top: 10px;
+            }
+
+            svg{
+                display: none;
+            }
+
+            .container1 {
+                height: 700px;
+
+           .card {
+                display: block;
+                width: 265px;
+                height: auto;
+                margin: 10px;
+           }
+
+            .card-bg {
+                display: block;
+                width: auto;
+                background-color: white;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                text-align: center;
+                padding: 5px 0px;
+            }
+
+            .image-container {
+                width: 150px;
+                height: 150px;
+                display: inline-table;
+                margin: 10px;
+            }
+
+            .image-container img {
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+            }
+
+            .card-content h2 {
+                font-size: 20px;
+                margin: 10px;
+                color: black;
+                text-align: center;
+            }
+
+            .card-content ul {
+                margin-top: 0;
+                text-align: left;
+                margin-bottom: 0;
+                padding-left: 10;
+            }
+
+            .card-content ul li {
+                margin-bottom: 8px;
+                font-size: 15px;
+                color: #333;
+            }
+
+            .button-container {
+                display: flex;
+                justify-content: center;
+                padding: 15px;
+            }
+        }
+
+
+
+        
     </style>
 </head>
 
@@ -200,12 +396,12 @@
     <div class="container">
 
         <div class="sidebar_layout">
-            <div class="side_bar">
+            <div class="sidebar">
                 <img class="icon" src="/Picture/Icon.png">
                 <p class="web_name">RUAMTY BG</p>
                 <p class="account_name">Account name</p>
 
-                <form asp-controller="Home" asp-action="HomePage">
+                <form class="nav_item" asp-controller="Home" asp-action="HomePage">
                     <button class="nav_button" id="home_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-house" viewBox="0 0 16 16">
@@ -216,7 +412,7 @@
                     </button>
                 </form>
 
-                <form asp-controller="Home" asp-action="MyPost">
+                <form class="nav_item" asp-controller="Home" asp-action="MyPost">
                     <button class="nav_button" id="posted_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-card-list" viewBox="0 0 16 16">
@@ -229,7 +425,7 @@
                     </button>
                 </form>
 
-                <form asp-controller="Home" asp-action="CreatePost">
+                <form class="nav_item" asp-controller="Home" asp-action="CreatePost">
                     <button type="submit" class="nav_button" id="create_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -240,7 +436,7 @@
                     </button>
                 </form>
 
-                <form asp-controller="Home" asp-action="JoinedPost">
+                <form class="nav_item" asp-controller="Home" asp-action="JoinedPost">
                     <button class="nav_button" id="joined_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-card-checklist" viewBox="0 0 16 16">
@@ -253,7 +449,7 @@
                     </button>
                 </form>
 
-                <form asp-controller="Home" asp-action="Register">
+                <form class="nav_item" asp-controller="Home" asp-action="Register">
                     <button class="nav_button" id="logout_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -265,9 +461,9 @@
                         LOGOUT
                     </button>
                 </form>
-
             </div>
         </div>
+            
 
         <div class="display-board">
             <img class="decoration_pic" src="/Picture/bg 2_blur.jpg">
@@ -277,6 +473,15 @@
 
     </div>
     <script>
+        const logo = document.getElementById('logo');
+        const sidebar = document.getElementById('sidebar');
+
+        logo.addEventListener('click', function () {
+            if (window.innerWidth <= 760) {
+                sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
+            }
+        });
+
         function highlight(obj) {
                 obj.style.color = "#D74B76";
                 obj.style.background = "#FFBF6A";
