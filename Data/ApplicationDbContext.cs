@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebDev_MiniProject.Models;
+using WebDev_MiniProject.Models.Entities;
 
 namespace WebDev_MiniProject.Data
 {
@@ -10,5 +11,6 @@ namespace WebDev_MiniProject.Data
         }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Post> Posts { get; set; }
     }
 }
