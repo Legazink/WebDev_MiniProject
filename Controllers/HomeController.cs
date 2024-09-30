@@ -64,8 +64,9 @@ public class HomeController : Controller
 
     public IActionResult HomePage()
     {
+        IEnumerable <Post> allPost = _context.Posts;
         ViewData["Page"] = "Homepage";
-        return View();
+        return View(allPost);
     }
     [HttpGet]
     public IActionResult CreatePost()

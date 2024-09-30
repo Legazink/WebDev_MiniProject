@@ -12,8 +12,8 @@ using WebDev_MiniProject.Data;
 namespace WebDev_MiniProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240930054000_createpost")]
-    partial class createpost
+    [Migration("20240930055625_createtest")]
+    partial class createtest
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,9 @@ namespace WebDev_MiniProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("JoinedNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
                         .HasColumnType("int");
 
                     b.Property<string>("Place")

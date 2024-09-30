@@ -1,4 +1,5 @@
-﻿<style>
+﻿@model IEnumerable<WebDev_MiniProject.Models.Entities.Post>;
+<style>
      .button-container {
             display: flex;
             justify-content: center;
@@ -6,131 +7,29 @@
         }
     }
 </style>
-
 <div class="container1">
-    <div class="card">
-        <div class="card-bg">
-            <div class="image-container">
-                <img src="/Picture/kemet new.jpg" alt="Kemet Game">
-            </div>
-            <div class="card-content">
-                <h2>KEMET</h2>
-                <ul>
-                    <li>เจ้าของ Post: Account name</li>
-                    <li>จำนวนสมาชิก: 0/4</li>
-                    <li>สถานที่: ห้อง หอชาย A</li>
-                    <li>วันที่: 16/09/2567</li>
-                    <li>เวลา: 19:00น.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="button-container">
-            <button class="btn view-btn">JOIN</button>
-        </div>
-    </div>
-    
-    <div class="card">
-        <div class="card-bg">
-            <div class="image-container">
-                <img src="/Picture/poker.jpg" alt="Poker Game">
-            </div>
-            <div class="card-content">
-                <h2>POKER</h2>
-                <ul>
-                    <li>เจ้าของ Post: Account name</li>
-                    <li>จำนวนสมาชิก: 0/4</li>
-                    <li>สถานที่: ห้อง หอชาย A</li>
-                    <li>วันที่: 16/09/2567</li>
-                    <li>เวลา: 19:00น.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="button-container">
-            <button class="btn view-btn">JOIN</button>
-        </div>
-    </div>
 
-    <div class="card">
-        <div class="card-bg">
-            <div class="image-container">
-                <img src="/Picture/DT club.jpg" alt="DT club Game">
+    @foreach (var post in Model)
+    {
+            <div class="card">
+            <div class="card-bg">
+                <div class="image-container">
+                    <img src="/Picture/@post.GameName.jpg" alt="@post.GameName">
+                </div>
+                <div class="card-content">
+                        <h2>@post.GameName</h2>
+                    <ul>
+                        <li>เจ้าของ Post: Account name</li>
+                        <li>จำนวนสมาชิก: @post.JoinedNumber/@post.Number</li>
+                        <li>สถานที่: @post.Place</li>
+                        <li>วันที่: @post.Date</li>
+                        <li>เวลา: @post.Time</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card-content">
-                <h2>DETECTIVE CLUB</h2>
-                <ul>
-                    <li>เจ้าของ Post: Account name</li>
-                    <li>จำนวนสมาชิก: 0/4</li>
-                    <li>สถานที่: ห้อง หอชาย A</li>
-                    <li>วันที่: 16/09/2567</li>
-                    <li>เวลา: 19:00น.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="button-container">
-            <button class="btn view-btn">JOIN</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-bg">
-            <div class="image-container">
-                <img src="/Picture/werewolf.jpg" alt="werewolf Game">
-            </div>
-            <div class="card-content">
-                <h2>WEREWOLF</h2>
-                <ul>
-                    <li>เจ้าของ Post: Account name</li>
-                    <li>จำนวนสมาชิก: 0/4</li>
-                    <li>สถานที่: ห้อง หอชาย A</li>
-                    <li>วันที่: 16/09/2567</li>
-                    <li>เวลา: 19:00น.</li>
-                </ul>
+            <div class="button-container">
+                <button class="btn view-btn">JOIN</button>
             </div>
         </div>
-        <div class="button-container">
-            <button class="btn view-btn">JOIN</button>
-        </div>
-    </div>
-    
-    <div class="card">
-        <div class="card-bg">
-            <div class="image-container">
-                <img src="/Picture/luck and roll.jpg" alt="Luck">
-            </div>
-            <div class="card-content">
-                <h2>LUCK AND ROLL</h2>
-                <ul>
-                    <li>เจ้าของ Post: Account name</li>
-                    <li>จำนวนสมาชิก: 0/4</li>
-                    <li>สถานที่: ห้อง หอชาย A</li>
-                    <li>วันที่: 16/09/2567</li>
-                    <li>เวลา: 19:00น.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="button-container">
-            <button class="btn view-btn">JOIN</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-bg">
-            <div class="image-container">
-                <img src="/Picture/kemet new.jpg" alt="Kemet Game">
-            </div>
-            <div class="card-content">
-                <h2>KEMET</h2>
-                <ul>
-                    <li>เจ้าของ Post: Account name</li>
-                    <li>จำนวนสมาชิก: 0/4</li>
-                    <li>สถานที่: ห้อง หอชาย A</li>
-                    <li>วันที่: 16/09/2567</li>
-                    <li>เวลา: 19:00น.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="button-container">
-            <button class="btn view-btn">JOIN</button>
-        </div>
-    </div>
+    }
 </div>
