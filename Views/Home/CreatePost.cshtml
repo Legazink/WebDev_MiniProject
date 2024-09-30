@@ -1,10 +1,4 @@
-﻿<style>
-     #create_button{
-            color: #FFFFFF;
-        }
-</style>
-
-<link rel="stylesheet" href="~/css/CreatPost.css" asp-append-version="true" />
+﻿<link rel="stylesheet" href="~/css/CreatPost.css" asp-append-version="true" />
 
 <div class="container-post">
     <div class="top-zone">
@@ -39,27 +33,29 @@
                 <div class="contain-date">
                     <div class="form-group">
                         <h4>DATE</h4>
-                        <input class="form-control" type="date" placeholder="select DateTime" />
+                        <input class="form-control" type="date" placeholder="select DateTime" id="date"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="bottom-zone">
-        <form method="post" asp-controller="Home" asp-action="Create">
+        <form method="POST" asp-controller="Home" asp-action="CreatePost" id="createform">
             <div class="form-grid">
                 <div class="form-group form-item-1">
                     <h4>MEMBER</h4>
-                    <input class="form-control" type="text" placeholder="กรอกจำนวนสมาชิก" />
+                    <input class="form-control" type="text" placeholder="กรอกจำนวนสมาชิก" name="Number"/>
                 </div>
                 <div class="form-group form-item-2">
                     <h4>PLACE</h4>
-                    <input class="form-control" type="text" placeholder="กรอกสถานที่" />
+                    <input class="form-control" type="text" placeholder="กรอกสถานที่" name="Place"/>
                 </div>
                 <div class="form-group form-item-3">
                     <h4>TIME</h4>
-                    <input class="form-control" type="time" />
+                    <input class="form-control" type="time" name="Time"/>
                 </div>
+                <input type="hidden" name="Date" id="hiddenDate">
+                <input type="hidden" name="GameName" id="hiddenGameName">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
                     class="bi bi-people-fill logo-1" viewBox="0 0 16 16">
                     <path
@@ -82,6 +78,5 @@
             </div>
         </form>
     </div>
-
 </div>
 <script src="~/js/CreatPost.js" asp-append-version="true"></script>
