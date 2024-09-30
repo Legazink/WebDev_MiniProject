@@ -1,9 +1,8 @@
-namespace WebDev_MiniProject.Models
+using Microsoft.AspNetCore.Identity;
+
+namespace WebDev_MiniProject.Models.Entities
 {
-    public class Account
+    public class Account : IdentityUser
     {
-        public Guid ID { get; set; }
-        public string Username { get; set; } = "";
-        public string Password { get; set; } = "";
     }
 }

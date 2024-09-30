@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +15,13 @@ namespace WebDev_MiniProject.Controllers;
 public class HomeController : Controller
 {
     private readonly ApplicationDbContext _context;
-    public HomeController(ApplicationDbContext context)
+    private readonly SignInManager<Account> _signInManager;
+    private readonly UserManager<Account> _userManager;
+    public HomeController(ApplicationDbContext context, SignInManager<Account> signInManager, UserManager<Account> userManager)
     {
         _context = context;
+        _signInManager = signInManager;
+        _userManager = userManager;
     }
 
     [HttpGet]
@@ -28,22 +34,26 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(string username, string password)
     {
-        username = username.ToLower();
         ViewData["Page"] = "Login";
-        var accounts = await _context.Accounts.ToListAsync();
-        foreach (var account in accounts)
+        if (ModelState.IsValid)
         {
-            if (account.Username == username)
+            var result = await _signInManager.PasswordSignInAsync(username, password, false, lockoutOnFailure: false);
+            if (result.Succeeded)
             {
-                if (account.Password == password)
-                {
-                    return RedirectToAction("HomePage", "Home");
-                }
+                return RedirectToAction("HomePage");
             }
         }
-        ModelState.AddModelError("", "Invalid Username or Password.");
-
         return View();
+    }
+
+    public async Task<IActionResult> Logout()
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+        return RedirectToAction("Error");
     }
 
     [HttpGet]
@@ -54,19 +64,30 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Register(Account account)
+    public async Task<IActionResult> Register(string username, string password)
     {
         ViewData["Page"] = "Register";
-        _context.Add(account);
-        _context.SaveChanges();
-        return RedirectToAction("Login");
+        if (ModelState.IsValid)
+        {
+            var user = new Account { UserName = username };
+            var result = await _userManager.CreateAsync(user, password);
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return RedirectToAction("HomePage");
+            }
+        }
+        return View();
     }
-
     public IActionResult HomePage()
     {
+        if (User.Identity.IsAuthenticated)
+        {
         IEnumerable <Post> allPost = _context.Posts;
         ViewData["Page"] = "Homepage";
         return View(allPost);
+        }
+        return RedirectToAction("Login");
     }
     [HttpGet]
     public IActionResult CreatePost()
