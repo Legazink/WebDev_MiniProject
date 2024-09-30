@@ -403,7 +403,7 @@
                 <p class="web_name">RUAMTY BG</p>
                 <p class="account_name">Account name</p>
 
-                <form class="nav_item" asp-controller="Home" asp-action="HomePage">
+                <form class="nav_item" asp-controller="Home" asp-action="HomePage" method="GET">
                     <button class="nav_button" id="home_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-house" viewBox="0 0 16 16">
@@ -414,7 +414,7 @@
                     </button>
                 </form>
 
-                <form class="nav_item" asp-controller="Home" asp-action="MyPost">
+                <form class="nav_item" asp-controller="Home" asp-action="MyPost" method="GET">
                     <button class="nav_button" id="posted_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-card-list" viewBox="0 0 16 16">
@@ -427,7 +427,7 @@
                     </button>
                 </form>
 
-                <form class="nav_item" asp-controller="Home" asp-action="CreatePost">
+                <form class="nav_item" asp-controller="Home" asp-action="CreatePost" method="GET">
                     <button type="submit" class="nav_button" id="create_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -438,7 +438,7 @@
                     </button>
                 </form>
 
-                <form class="nav_item" asp-controller="Home" asp-action="JoinedPost">
+                <form class="nav_item" asp-controller="Home" asp-action="JoinedPost" method="GET">
                     <button class="nav_button" id="joined_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-card-checklist" viewBox="0 0 16 16">
@@ -451,7 +451,7 @@
                     </button>
                 </form>
 
-                <form class="nav_item" asp-controller="Home" asp-action="Register">
+                <form class="nav_item" asp-controller="Home" asp-action="Register" method="GET">
                     <button class="nav_button" id="logout_button" onmouseover="highlight(this)" onmouseleave="unhighlight(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-box-arrow-right" viewBox="0 0 16 16">
@@ -475,14 +475,7 @@
 
     </div>
     <script>
-        const logo = document.getElementById('logo');
         const sidebar = document.getElementById('sidebar');
-
-        logo.addEventListener('click', function () {
-            if (window.innerWidth <= 760) {
-                sidebar.style.display = sidebar.style.display === 'flex' ? 'none' : 'flex';
-            }
-        });
 
         function highlight(obj) {
                 obj.style.color = "#D74B76";

@@ -67,10 +67,19 @@ public class HomeController : Controller
         ViewData["Page"] = "Homepage";
         return View();
     }
+    [HttpGet]
     public IActionResult CreatePost()
     {
         ViewData["Page"] = "Create";
         return View();
+    }
+    [HttpPost]
+    public IActionResult CreatePost(Post post)
+    {
+        ViewData["Page"] = "Create";
+        _context.Add(post);
+        _context.SaveChanges();
+        return RedirectToAction("HomePage");
     }
     public IActionResult MyPost()
     {

@@ -217,3 +217,7 @@
     padding: 10px;
     box-sizing: border-box; 
 }
+
+#create_button {
+    color: #FFFFFF;
+}

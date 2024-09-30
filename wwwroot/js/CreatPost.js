@@ -9,7 +9,6 @@ const dropdowns = document.querySelectorAll('.dropdown');
         const img = document.getElementById('game-img')
 
         select.addEventListener('click', () => {
-            select.classList.toggle('select-clicked');
             caret.classList.toggle('caret-rotate');
             menu.classList.toggle('menu-open');
         });
@@ -23,10 +22,14 @@ const dropdowns = document.querySelectorAll('.dropdown');
 
                 const Newimg = options.getAttribute('data-image');
                 img.src = Newimg;
-                options.forEach(option => {
-                    option.classList.remove('active');
-                });
-                option.classList.add('active');
             });
         });
     });
+
+document.querySelector("#createform").addEventListener("submit", (event) => {
+    var GameName = document.querySelector(".selected").innerText;
+    var DateInput = document.querySelector("#date").value;
+
+    document.querySelector("#hiddenGameName").value = GameName;
+    document.querySelector("#hiddenDate").value = DateInput;
+});
