@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zKT5r/KPRYykWPsq78Q6AuovHJDo/1WCpp1jZP19Pts=",
+  "Hash": "TPZim6QIKq8hvExN19UAiNlmxC7YEI9te4rQS8pOtE0=",
   "Source": "WebDev_MiniProject",
   "BasePath": "_content/WebDev_MiniProject",
   "Mode": "Default",
@@ -1252,12 +1252,12 @@
       "OriginalItemSpec": "wwwroot\\Picture\\bg 2_blur.jpg"
     },
     {
-      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\DT club.jpg",
+      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\DETECTIVE CLUB.jpg",
       "SourceId": "WebDev_MiniProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\",
       "BasePath": "_content/WebDev_MiniProject",
-      "RelativePath": "Picture/DT club.jpg",
+      "RelativePath": "Picture/DETECTIVE CLUB.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,7 +1268,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Picture\\DT club.jpg"
+      "OriginalItemSpec": "wwwroot\\Picture\\DETECTIVE CLUB.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\Icon.png",
@@ -1290,12 +1290,12 @@
       "OriginalItemSpec": "wwwroot\\Picture\\Icon.png"
     },
     {
-      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\kemet new.jpg",
+      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\KEMET.jpg",
       "SourceId": "WebDev_MiniProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\",
       "BasePath": "_content/WebDev_MiniProject",
-      "RelativePath": "Picture/kemet new.jpg",
+      "RelativePath": "Picture/KEMET.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1306,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Picture\\kemet new.jpg"
+      "OriginalItemSpec": "wwwroot\\Picture\\KEMET.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\luck and roll.jpg",
@@ -1328,12 +1328,12 @@
       "OriginalItemSpec": "wwwroot\\Picture\\luck and roll.jpg"
     },
     {
-      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\poker.jpg",
+      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\POKER.jpg",
       "SourceId": "WebDev_MiniProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\",
       "BasePath": "_content/WebDev_MiniProject",
-      "RelativePath": "Picture/poker.jpg",
+      "RelativePath": "Picture/POKER.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,15 +1344,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Picture\\poker.jpg"
+      "OriginalItemSpec": "wwwroot\\Picture\\POKER.jpg"
     },
     {
-      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\werewolf.jpg",
+      "Identity": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\Picture\\WEREWOLF.jpg",
       "SourceId": "WebDev_MiniProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\User\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\",
       "BasePath": "_content/WebDev_MiniProject",
-      "RelativePath": "Picture/werewolf.jpg",
+      "RelativePath": "Picture/WEREWOLF.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1363,7 +1363,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Picture\\werewolf.jpg"
+      "OriginalItemSpec": "wwwroot\\Picture\\WEREWOLF.jpg"
     }
   ]
 }
