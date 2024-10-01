@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebDev_MiniProject.Models.Entities.Post>;
+﻿@model IEnumerable<dynamic> // เปลี่ยนเป็น dynamic
 <style>
      .button-container {
             display: flex;
@@ -19,7 +19,7 @@
                 <div class="card-content">
                         <h2>@post.GameName</h2>
                     <ul>
-                        <li>เจ้าของ Post: @User.Identity.Name</li>
+                        <li>เจ้าของ Post: @post.Username</li>
                         <li>จำนวนสมาชิก: @post.JoinedNumber/@post.Number</li>
                         <li>สถานที่: @post.Place</li>
                         <li>วันที่: @post.Date</li>
