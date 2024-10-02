@@ -1,4 +1,6 @@
-﻿<style>
+﻿@model IEnumerable<dynamic> 
+
+<style>
     #posted_button{
             color: #FFFFFF;
         }
@@ -32,11 +34,12 @@
             </div>
             <div class="button-container">
                  <button class="btn view-btn">CANCLE</button>
-                 <form asp-controller="Home" asp-action="ViewMember" method="POST">
-                    <input type="hidden" name="PostId" value="@post.PostId" />
-                <button class="btn view-btn">VIEW MEMBER</button>
+                     <form asp-controller="Home" asp-action="GetPostMembers" method="get">
+                    <input type="hidden" name="postId" value="@post.PostId" />
+                    <button class="btn view-btn">VIEW MEMBER</button>
                 </form>
             </div>
         </div>
     }
 </div>
+

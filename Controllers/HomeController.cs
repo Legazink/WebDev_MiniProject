@@ -136,21 +136,13 @@ public class HomeController : Controller
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
         if (user != null)
         {
-            // Set AccountId จาก user ที่ล็อกอิน
             obj.AccountID = user.Id;
-
-            // ดึงข้อมูลโพสต์จากฐานข้อมูลที่มี PostId ตรงกับ obj.PostID
             var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == obj.PostID);
 
             if (post != null)
             {
-                // อัปเดตค่า Number (หรือฟิลด์อื่น ๆ ที่คุณต้องการ)
-                post.JoinedNumber += 1; // สมมติว่าต้องการเพิ่มสมาชิกที่เข้าร่วม
-
-                // เพิ่มข้อมูล JoinedPost ลงในฐานข้อมูล
+                post.JoinedNumber += 1; 
                 _context.Add(obj);
-
-                // บันทึกการเปลี่ยนแปลงทั้งหมด
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("HomePage");
@@ -181,6 +173,23 @@ public class HomeController : Controller
 
         ViewData["Page"] = "MyPost";
         return View(myPosts); // ส่ง myPosts ไปยัง View
+    }
+
+    //ทดสอบ view member
+    public async Task<IActionResult> GetPostMembers(Guid postId)
+    {
+        // Query เพื่อดึงข้อมูลสมาชิกที่เข้าร่วมในโพสต์นี้จากตาราง JoinedPost
+        var joinedMembers = await _context.JoinedAllPosts
+            .Where(j => j.PostID == postId)
+            .Select(j => new
+            {
+                j.AccountID,
+                Username = _context.Users.Where(u => u.Id == j.AccountID).Select(u => u.UserName).FirstOrDefault()
+            })
+            .ToListAsync();
+
+        // ส่งข้อมูลสมาชิกไปที่ View
+        return View(joinedMembers);
     }
 
     public IActionResult JoinedPost()

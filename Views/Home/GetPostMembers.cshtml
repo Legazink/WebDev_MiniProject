@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "GetPostMembers";
+}
+@model IEnumerable<dynamic>
+
+<div class="container1">
+    @foreach (var member in Model)
+    {
+        <li>@member.Username</li>
+     }
+      
+</div>
+

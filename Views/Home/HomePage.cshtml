@@ -30,7 +30,7 @@
                 <form asp-controller="Home" asp-action="Join" method="POST">
                     <input type="hidden" name="PostId" value="@post.PostId" />
                     <div class="button-container">
-                        <button class="btn view-btn">JOIN</button>
+                        <button class="btn view-btn" onclick="disable-btn(this)">JOIN</button>
                     </div>
                 </form>
         </div>
