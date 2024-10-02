@@ -17,59 +17,59 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebDev_MiniProject
 build_property.RootNamespace = WebDev_MiniProject
-build_property.ProjectDir = C:\Users\User\Documents\GitHub\WebDev_MiniProject\
+build_property.ProjectDir = C:\Users\job45\OneDrive\Desktop\WebDev_MiniProject\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Documents\GitHub\WebDev_MiniProject
+build_property.MSBuildProjectDirectory = C:\Users\job45\OneDrive\Desktop\WebDev_MiniProject
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/CreatePost.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/CreatePost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVQb3N0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/GetPostMembers.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/GetPostMembers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXRQb3N0TWVtYmVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/HomePage.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/HomePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/JoinedPost.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/JoinedPost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxKb2luZWRQb3N0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/Login.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/MyPost.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/MyPost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVBvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Home/Register.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Home/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Shared/Error.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/_ViewImports.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/_ViewStart.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Documents/GitHub/WebDev_MiniProject/Views/Shared/_Layout.cshtml]
+[C:/Users/job45/OneDrive/Desktop/WebDev_MiniProject/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3b1caoclt3
