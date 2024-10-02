@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using WebDev_MiniProject.Models.Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace WebDev_MiniProject.Data
@@ -12,18 +11,25 @@ namespace WebDev_MiniProject.Data
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<JoinedAllPost> JoinedAllPosts { get; set; }
 
-        // Override the OnModelCreating method
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            // Add custom configurations or constraints here
-            builder.Entity<Account>()
-                .Property(u => u.AccountID)
-                .ValueGeneratedOnAdd(); // Automatically increment AccountId when a new user is created
+            // กำหนดความสัมพันธ์ระหว่าง Account กับ Post
+            builder.Entity<Post>()
+                .HasOne(p => p.Account) // A Post has one Account
+                .WithMany() // Account can have many Posts
+                .HasForeignKey(p => p.AccountID) // ใช้ AccountID เป็น foreign key
+                .OnDelete(DeleteBehavior.Cascade); // หากลบ Account จะลบ Posts ด้วย
 
-            // You can add other configurations for the entities here as well
+            builder.Entity<JoinedAllPost>()
+                .HasOne(j => j.Post)
+                .WithMany()
+                .HasForeignKey(j => j.PostID)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

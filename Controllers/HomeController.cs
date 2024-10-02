@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Hosting;
 using WebDev_MiniProject.Data;
 using WebDev_MiniProject.Models;
 using WebDev_MiniProject.Models.Entities;
+using System.Security.Claims;
+
 
 namespace WebDev_MiniProject.Controllers;
 
@@ -79,16 +82,32 @@ public class HomeController : Controller
         }
         return View();
     }
-    public IActionResult HomePage()
+    public async Task<IActionResult> HomePage()
     {
+        // ตรวจสอบว่าผู้ใช้ล็อกอินอยู่
         if (User.Identity.IsAuthenticated)
         {
-        IEnumerable <Post> allPost = _context.Posts;
-        ViewData["Page"] = "Homepage";
-        return View(allPost);
+            var allPosts = await _context.Posts
+                .Select(post => new
+                {
+                    post.PostId,
+                    post.GameName,
+                    post.JoinedNumber,
+                    post.Number,
+                    post.Place,
+                    post.Date,
+                    post.Time,
+                    Username = post.Account.UserName
+                })
+                .ToListAsync(); 
+            ViewData["Page"] = "Homepage";
+            return View(allPosts); // ส่ง allPosts ไปยัง View
         }
+
+        // หากผู้ใช้ไม่ได้ล็อกอิน จะเปลี่ยนเส้นทางไปยังหน้าล็อกอิน
         return RedirectToAction("Login");
     }
+
     [HttpGet]
     public IActionResult CreatePost()
     {
@@ -96,18 +115,74 @@ public class HomeController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult CreatePost(Post post)
+    public async Task<IActionResult> CreatePost(Post post)
     {
         ViewData["Page"] = "Create";
-        _context.Add(post);
-        _context.SaveChanges();
-        return RedirectToAction("HomePage");
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        if (user != null)
+        {
+            post.AccountID = user.Id;
+            _context.Add(post);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("HomePage");
+        }
+        return RedirectToAction("Login");
     }
-    public IActionResult MyPost()
+
+    [HttpPost]
+    public async Task<IActionResult> Join(JoinedAllPost obj)
     {
-        ViewData["Page"] = "MyPost";
-        return View();
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        if (user != null)
+        {
+            // Set AccountId จาก user ที่ล็อกอิน
+            obj.AccountID = user.Id;
+
+            // ดึงข้อมูลโพสต์จากฐานข้อมูลที่มี PostId ตรงกับ obj.PostID
+            var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == obj.PostID);
+
+            if (post != null)
+            {
+                // อัปเดตค่า Number (หรือฟิลด์อื่น ๆ ที่คุณต้องการ)
+                post.JoinedNumber += 1; // สมมติว่าต้องการเพิ่มสมาชิกที่เข้าร่วม
+
+                // เพิ่มข้อมูล JoinedPost ลงในฐานข้อมูล
+                _context.Add(obj);
+
+                // บันทึกการเปลี่ยนแปลงทั้งหมด
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("HomePage");
+            }
+        }
+        return RedirectToAction("JoinedPost");
     }
+
+
+
+    public async Task<IActionResult> MyPost()
+    {
+        var accountID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var myPosts = await _context.Posts
+            .Where(post => post.AccountID == accountID)
+            .Select(post => new
+            {
+                post.PostId,
+                post.GameName,
+                post.JoinedNumber,
+                post.Number,
+                post.Place,
+                post.Date,
+                post.Time,
+                Username = post.Account.UserName
+            })
+            .ToListAsync();
+
+        ViewData["Page"] = "MyPost";
+        return View(myPosts); // ส่ง myPosts ไปยัง View
+    }
+
     public IActionResult JoinedPost()
     {
         ViewData["Page"] = "Joined";
