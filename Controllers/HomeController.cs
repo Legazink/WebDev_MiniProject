@@ -129,6 +129,38 @@ public class HomeController : Controller
         }
         return RedirectToAction("Login");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Join(JoinedAllPost obj)
+    {
+        var user = await _userManager.FindByNameAsync(User.Identity.Name);
+        if (user != null)
+        {
+            // Set AccountId จาก user ที่ล็อกอิน
+            obj.AccountID = user.Id;
+
+            // ดึงข้อมูลโพสต์จากฐานข้อมูลที่มี PostId ตรงกับ obj.PostID
+            var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == obj.PostID);
+
+            if (post != null)
+            {
+                // อัปเดตค่า Number (หรือฟิลด์อื่น ๆ ที่คุณต้องการ)
+                post.JoinedNumber += 1; // สมมติว่าต้องการเพิ่มสมาชิกที่เข้าร่วม
+
+                // เพิ่มข้อมูล JoinedPost ลงในฐานข้อมูล
+                _context.Add(obj);
+
+                // บันทึกการเปลี่ยนแปลงทั้งหมด
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("HomePage");
+            }
+        }
+        return RedirectToAction("JoinedPost");
+    }
+
+
+
     public async Task<IActionResult> MyPost()
     {
         var accountID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

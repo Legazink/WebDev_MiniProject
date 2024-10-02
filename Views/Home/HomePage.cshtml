@@ -27,9 +27,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="button-container">
-                <button class="btn view-btn">JOIN</button>
-            </div>
+                <form asp-controller="Home" asp-action="Join" method="POST">
+                    <input type="hidden" name="PostId" value="@post.PostId" />
+                    <div class="button-container">
+                        <button class="btn view-btn">JOIN</button>
+                    </div>
+                </form>
         </div>
     }
 </div>
