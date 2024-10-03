@@ -226,35 +226,43 @@
         grid-template-columns: 1fr 1fr; /* Change to 2 columns */
     }
 
-    .top-grid {
-        grid-template-columns: 1fr 1fr 1fr; /* Change to 3 columns */
+    .top-item1,
+    .top-item2 {
+        width: 100%; /* Make top items full width */
+        margin: 0; /* Remove margins for better fit */
+        margin-bottom: -30px;
+        margin-left: 70%;
     }
 
-    .top-item1, .top-item2, .top-item3, .top-item4 {
-        width: 100%; /* Make top items full width */
-        margin: 0px; /* Remove margins for better fit */
+    .top-item3{
+        width: 100%; /* Make these items full width */
+        display: flex; /* Use flexbox for these items */
+        margin-top: 2px; /* Adjust top margin */
+
     }
+
+
 
     .bottom-zone {
         padding: 20px; /* Reduce padding for bottom zone */
     }
 
     .dropdown {
-        width: 108%; /* Make dropdown full width */
+        width: 100%; /* Make dropdown full width */
+        margin-left: -2%;
+        margin-top: 30px;
     }
 
-    .form-grid {
-        grid-template-columns: 1fr; /* Single column layout for form */
-        margin-left: 0; /* Remove left margin */
-    }
+
 
     .form-item-1, .form-item-2, .form-item-3 {
         justify-self: stretch; /* Stretch items to fit the column */
     }
 
     .create-btn {
-        width: 100%; /* Full width for create button */
+        width: 80%; /* Full width for create button */
         position: static; /* Change position to static for responsiveness */
+        margin-left: 80px;
     }
 
     .img {
@@ -270,8 +278,8 @@
     }
 
     .date-icon {
-        margin-top: 10px; /* Adjust date icon margin */
-        margin-left: 10px;
+        margin-top: 33px; /* Adjust date icon margin */
+        margin-left: -10px;
     }
 
     .form-control {
@@ -281,6 +289,19 @@
     .select {
         font-size: 18px; /* Adjust font size */
         padding: 10px; /* Adjust padding */
+    }
+
+    .svg-icon {
+        margin-right: 30px; /* ระยะห่างระหว่างไอคอน */
+        transform: translateY(-10px); /* ขยับขึ้นหรือลง */
+        width: 30px; /* ขนาดของไอคอน */
+        height: 30px;
+        margin-left: 85%;
+    }
+    
+    .form-grid svg {
+        display: inline-block; /* ทำให้ไอคอนอยู่ในบรรทัดเดียวกันกับองค์ประกอบอื่น ๆ */
+        vertical-align: middle; /* จัดกึ่งกลางในแนวตั้ง */
     }
 }
 
@@ -304,6 +325,7 @@
         margin: 0; /* Remove margins for better fit */
         text-align: center; /* Center text in each item */
         margin-bottom: -45px;
+        margin-right: -20px;
     }
 
     .top-item3{
@@ -311,8 +333,9 @@
         display: flex; /* Use flexbox for these items */
         justify-content: center; /* Center items horizontally */
         margin-top: 20px; /* Adjust top margin */
-        margin-left: -380px;
+        margin-left: -365px;
         margin-bottom: -10px;
+        margin-right: 40px;
     }
     .top-item4 {
         width: 100%; /* Make these items full width */
@@ -329,6 +352,7 @@
     .dropdown {
         width: 45%; /* Make dropdown full width */
         margin-bottom: 20px;
+        margin-right: -30px;
     }
 
     .form-grid {
@@ -343,8 +367,8 @@
     }
 
     .create-btn {
-        width: 100%; /* Full width for create button */
-        position: static; /* Change position to static for responsiveness */
+        width: 85%; /* Full width for create button */
+        margin-left: 50px;
     }
 
     .img {
@@ -361,8 +385,8 @@
 
     .date-icon {
         margin-top: 35px; /* Adjust date icon margin */
-        margin-left: 350px;
-        margin-right: 10px;
+        margin-left: 410px;
+        margin-right: 1px;
     }
 
     .form-control {
@@ -375,7 +399,7 @@
     }
 
     .svg-icon {
-        margin-right: 10px; /* ระยะห่างระหว่างไอคอน */
+        margin-right: 40px; /* ระยะห่างระหว่างไอคอน */
         transform: translateY(-10px); /* ขยับขึ้นหรือลง */
         width: 30px; /* ขนาดของไอคอน */
         height: 30px;
@@ -406,18 +430,20 @@
         margin: 0; /* Remove margins for better fit */
         text-align: center; /* Center text in each item */
         margin-bottom: -45px;
+        margin-right: -10px;
     }
 
     .top-item3{
-        width: 70%; /* Make these items full width */
+        width: 100%; /* Make these items full width */
         display: flex; /* Use flexbox for these items */
         justify-content: center; /* Center items horizontally */
         margin-top: 20px; /* Adjust top margin */
-        margin-left: -370px;
+        margin-left: -180px;
         margin-bottom: -10px;
+        margin-right: 40px;
     }
     .top-item4 {
-        width: 70%; /* Make these items full width */
+        width: 100%; /* Make these items full width */
         display: flex; /* Use flexbox for these items */
         justify-content: center; /* Center items horizontally */
         margin-top: 20px; /* Adjust top margin */
@@ -429,8 +455,9 @@
     }
 
     .dropdown {
-        width: 45%; /* Make dropdown full width */
+        width: 50%; /* Make dropdown full width */
         margin-bottom: 20px;
+        margin-right: -15px;
     }
 
     .form-grid {
@@ -442,20 +469,19 @@
     .form-item-2,
     .form-item-3 {
         justify-self: stretch; /* Stretch items to fit the column */
-        margin-left: 20px;
-        width: 80%;
+        margin-right: -10px;
     }
 
     .create-btn {
-        width: 80%; /* Full width for create button */
-        position: static; /* Change position to static for responsiveness */
-        margin-right: -2px;
-        margin-left: 30px;
+        width: 85%; /* Full width for create button */
+        margin-left: 20px;
     }
 
     .img {
         width: 70%; /* ปรับความกว้างให้ใหญ่ขึ้น */
         height: auto; /* ความสูงจะปรับตามสัดส่วนของภาพ */
+        max-width: 100%; /* ขีดจำกัดความกว้างสูงสุด 100% */
+        min-width: 20%; /* ขีดจำกัดความกว้างต่ำสุด 20% */
         object-fit: cover; /* ทำให้ภาพไม่ผิดสัดส่วน */
     }
 
@@ -465,7 +491,9 @@
 
     .date-icon {
         margin-top: 35px; /* Adjust date icon margin */
-        margin-left: 360px;
+        margin-left: 410px;
+        margin-right: 1px;
+        display: none;
     }
 
     .form-control {
@@ -474,7 +502,20 @@
 
     .select {
         font-size: 12px; /* Adjust font size */
-        padding: 8px; /* Adjust padding */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .svg-icon {
+        margin-right: 40px; /* ระยะห่างระหว่างไอคอน */
+        transform: translateY(-10px); /* ขยับขึ้นหรือลง */
+        width: 30px; /* ขนาดของไอคอน */
+        height: 30px;
+        display: none;
     }
     
+    .form-grid svg {
+        display: inline-block; /* ทำให้ไอคอนอยู่ในบรรทัดเดียวกันกับองค์ประกอบอื่น ๆ */
+        vertical-align: middle; /* จัดกึ่งกลางในแนวตั้ง */
+        display: none;
+    }
 }
