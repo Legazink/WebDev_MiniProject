@@ -119,15 +119,16 @@ public class HomeController : Controller
     public async Task<IActionResult> CreatePost(Post post)
     {
         ViewData["Page"] = "Create";
-        var user = await _userManager.FindByNameAsync(User.Identity.Name);
-        if (user != null)
+        if (User.Identity.IsAuthenticated)
         {
-            post.Account.Id = user.Id;
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            post.Account = user;
             _context.Add(post);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("HomePage");
         }
+        
         return RedirectToAction("Login");
     }
 

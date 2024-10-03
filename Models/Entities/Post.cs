@@ -6,10 +6,10 @@ namespace WebDev_MiniProject.Models.Entities
     {
         public Guid PostId { get; set; }
         public string GameName { get; set; } = "";
-        public int JoinedNumber { get; set; }
+        public int JoinedNumber { get; set; } = 1;
         public int Number { get; set; }
         public string Place { get; set; } = "";
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public string Time { get; set; } = "";
         public Account Account { get; set; } = null!;
         
