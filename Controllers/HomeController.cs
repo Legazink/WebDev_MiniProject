@@ -11,6 +11,7 @@ using WebDev_MiniProject.Data;
 using WebDev_MiniProject.Models;
 using WebDev_MiniProject.Models.Entities;
 using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 
 namespace WebDev_MiniProject.Controllers;
@@ -175,21 +176,28 @@ public class HomeController : Controller
         return View(myPosts); // ส่ง myPosts ไปยัง View
     }
 
-    //ทดสอบ view member
-    public async Task<IActionResult> GetPostMembers(Guid postId)
+    [HttpPost]
+    public IActionResult GetPostMembers(string postId)
     {
-        // Query เพื่อดึงข้อมูลสมาชิกที่เข้าร่วมในโพสต์นี้จากตาราง JoinedPost
-        var joinedMembers = await _context.JoinedAllPosts
-            .Where(j => j.PostID == postId)
+        
+
+        Console.WriteLine("Received Post ID: " + postId);
+        if (!string.IsNullOrEmpty(postId))
+        {
+            Console.WriteLine("PostId Not Empty");
+            Guid guidPost = Guid.Parse(postId);
+            var joinedMembers = _context.JoinedAllPosts
+            .Where(j => j.PostID == guidPost)
             .Select(j => new
             {
                 j.AccountID,
                 Username = _context.Users.Where(u => u.Id == j.AccountID).Select(u => u.UserName).FirstOrDefault()
             })
             .ToListAsync();
+            return Json(new {joinedMembers});
+        }
 
-        // ส่งข้อมูลสมาชิกไปที่ View
-        return View(joinedMembers);
+        return Error();
     }
 
     public IActionResult JoinedPost()
