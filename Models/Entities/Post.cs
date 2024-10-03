@@ -9,7 +9,7 @@ namespace WebDev_MiniProject.Models.Entities
         public int JoinedNumber { get; set; }
         public int Number { get; set; }
         public string Place { get; set; } = "";
-        public string Date { get; set; } = "";
+        public DateTime Date { get; set; }
         public string Time { get; set; } = "";
         public Account Account { get; set; } = null!;
         
