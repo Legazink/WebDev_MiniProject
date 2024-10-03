@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebDev_MiniProject.Data;
 
@@ -11,9 +12,11 @@ using WebDev_MiniProject.Data;
 namespace WebDev_MiniProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241003162531_RelationJoinedPost")]
+    partial class RelationJoinedPost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -228,15 +231,14 @@ namespace WebDev_MiniProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AccountId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("AccountID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("PostId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AccountId");
 
                     b.HasIndex("PostId");
 
@@ -249,7 +251,8 @@ namespace WebDev_MiniProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AccountId")
+                    b.Property<string>("AccountID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Date")
@@ -276,7 +279,7 @@ namespace WebDev_MiniProject.Migrations
 
                     b.HasKey("PostId");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("AccountID");
 
                     b.ToTable("Posts");
                 });
@@ -334,17 +337,11 @@ namespace WebDev_MiniProject.Migrations
 
             modelBuilder.Entity("WebDev_MiniProject.Models.Entities.JoinedAllPost", b =>
                 {
-                    b.HasOne("WebDev_MiniProject.Models.Entities.Account", "Account")
-                        .WithMany("JoinAllPosts")
-                        .HasForeignKey("AccountId");
-
                     b.HasOne("WebDev_MiniProject.Models.Entities.Post", "Post")
                         .WithMany("JoinedAllPosts")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Account");
 
                     b.Navigation("Post");
                 });
@@ -352,17 +349,12 @@ namespace WebDev_MiniProject.Migrations
             modelBuilder.Entity("WebDev_MiniProject.Models.Entities.Post", b =>
                 {
                     b.HasOne("WebDev_MiniProject.Models.Entities.Account", "Account")
-                        .WithMany("Posts")
-                        .HasForeignKey("AccountId");
+                        .WithMany()
+                        .HasForeignKey("AccountID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Account");
-                });
-
-            modelBuilder.Entity("WebDev_MiniProject.Models.Entities.Account", b =>
-                {
-                    b.Navigation("JoinAllPosts");
-
-                    b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("WebDev_MiniProject.Models.Entities.Post", b =>

@@ -122,7 +122,7 @@ public class HomeController : Controller
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
         if (user != null)
         {
-            post.AccountID = user.Id;
+            post.Account.Id = user.Id;
             _context.Add(post);
             await _context.SaveChangesAsync();
 
@@ -137,12 +137,12 @@ public class HomeController : Controller
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
         if (user != null)
         {
-            obj.AccountID = user.Id;
-            var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == obj.PostID);
+            obj.Account.Id = user.Id;
+            var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == obj.Post.PostId);
 
             if (post != null)
             {
-                post.JoinedNumber += 1; 
+                post.JoinedNumber += 1;
                 _context.Add(obj);
                 await _context.SaveChangesAsync();
 
@@ -158,7 +158,7 @@ public class HomeController : Controller
     {
         var accountID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var myPosts = await _context.Posts
-            .Where(post => post.AccountID == accountID)
+            .Where(post => post.Account.Id == accountID)
             .Select(post => new
             {
                 post.PostId,
@@ -187,11 +187,11 @@ public class HomeController : Controller
             Console.WriteLine("PostId Not Empty");
             Guid guidPost = Guid.Parse(postId);
             var joinedMembers = _context.JoinedAllPosts
-            .Where(j => j.PostID == guidPost)
+            .Where(j => j.Post.PostId == guidPost)
             .Select(j => new
             {
-                j.AccountID,
-                Username = _context.Users.Where(u => u.Id == j.AccountID).Select(u => u.UserName).FirstOrDefault()
+                j.Account.Id,
+                Username = _context.Users.Where(u => u.Id == j.Account.Id).Select(u => u.UserName).FirstOrDefault()
             })
             .ToListAsync();
             return Json(new {joinedMembers});

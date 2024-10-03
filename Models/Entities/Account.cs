@@ -4,6 +4,8 @@ namespace WebDev_MiniProject.Models.Entities
 {
     public class Account : IdentityUser
     {
-        //public int AccountID { get; set; }
+        public ICollection<Post> Posts { get; set; } = [];
+
+        public ICollection<JoinedAllPost> JoinAllPosts { get; set; } = [];
     }
 }

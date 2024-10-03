@@ -11,11 +11,8 @@ namespace WebDev_MiniProject.Models.Entities
         public string Place { get; set; } = "";
         public string Date { get; set; } = "";
         public string Time { get; set; } = "";
-        public string AccountID { get; set; }
- 
-        [ForeignKey("AccountID")]
-        public virtual Account Account { get; set; }
+        public Account Account { get; set; } = null!;
         
-
+        public ICollection<JoinedAllPost> JoinedAllPosts { get; set; } = [];
     }
 }

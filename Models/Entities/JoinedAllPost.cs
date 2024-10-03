@@ -8,10 +8,8 @@ namespace WebDev_MiniProject.Models.Entities
         [Key]
         public int Id { get; set; }
 
-        public string AccountID { get; set; }
+        public Account Account { get; set; } = null!;
 
-        public Guid PostID { get; set; }
-        [ForeignKey("PostID")]
-        public virtual Post Post { get; set; }
+        public Post Post { get; set; } = null!;
     }
 }
