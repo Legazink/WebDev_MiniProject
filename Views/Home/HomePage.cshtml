@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<dynamic> // เปลี่ยนเป็น dynamic
+
+@{
+    var currentUser = User.Identity.Name;
+    var postData = Html.Raw(Json.Serialize(Model));
+}
 <style>
      .button-container {
             display: flex;
@@ -19,7 +24,7 @@
                 <div class="card-content">
                         <h2>@post.GameName</h2>
                     <ul>
-                        <li>เจ้าของ Post: @post.Username</li>
+                        <li>เจ้าของ Post: @post.PostOwner</li>
                         <li>จำนวนสมาชิก: @post.JoinedNumber/@post.Number</li>
                         <li>สถานที่: @post.Place</li>
                         <li>วันที่: @post.Date</li>
@@ -28,11 +33,16 @@
                 </div>
             </div>
                 <form asp-controller="Home" asp-action="Join" method="POST">
-                    <input type="hidden" name="PostId" value="@post.PostId" />
+                    <input hidden name="PostId" value="@post.PostId"/>
                     <div class="button-container">
-                        <button class="btn view-btn" onclick="disable-btn(this)">JOIN</button>
+                        <button id="join-button-@post.PostId" class="btn view-btn" data-postId="@post.PostId">JOIN</button>
                     </div>
                 </form>
         </div>
     }
 </div>
+<script>
+    window.currentUser = "@currentUser";
+    window.postData = @postData;
+</script>
+<script src="~/js/HomePage.js"/>

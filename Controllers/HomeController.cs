@@ -85,20 +85,27 @@ public class HomeController : Controller
     }
     public async Task<IActionResult> HomePage()
     {
-        // ตรวจสอบว่าผู้ใช้ล็อกอินอยู่
         if (User.Identity.IsAuthenticated)
         {
             var allPosts = await _context.Posts
-                .Select(post => new
-                {
-                    post.PostId,
-                    post.GameName,
-                    post.JoinedNumber,
-                    post.Number,
-                    post.Place,
-                    post.Date,
-                    post.Time,
-                    Username = post.Account.UserName
+                .Include(p => p.JoinedAllPosts)
+                .Include(p => p.Account)
+                .Select(p => new {
+                    p.GameName,
+                    PostOwner = p.Account.UserName,
+                    p.JoinedNumber,
+                    p.Number,
+                    p.Place,
+                    p.Date,
+                    p.Time,
+                    p.PostId,
+                    PostJoinedAll = _context.JoinedAllPosts
+                    .Where(jp => jp.Post.PostId == p.PostId)
+                    .Select(jp => new
+                    {
+                        JoinedUserName = jp.Account.UserName,
+                    })
+                    .ToList()
                 })
                 .ToListAsync(); 
             ViewData["Page"] = "Homepage";
@@ -133,24 +140,25 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Join(JoinedAllPost obj)
+    public async Task<IActionResult> Join(Guid postId)
     {
-        var user = await _userManager.FindByNameAsync(User.Identity.Name);
-        if (user != null)
+        if (User.Identity.IsAuthenticated)
         {
-            obj.Account.Id = user.Id;
-            var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == obj.Post.PostId);
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var post = await _context.Posts.FirstOrDefaultAsync(p => p.PostId == postId);
+            JoinedAllPost joined = new JoinedAllPost();
+            joined.Account = user;
+            joined.Post = post;
+            List<JoinedAllPost> AllJoined = _context.JoinedAllPosts
+                .Where(jp => jp.Post.PostId == postId)
+                .ToList();
+            post.JoinedNumber = AllJoined.Count + 2;
+            _context.Add(joined);
+            await _context.SaveChangesAsync();
 
-            if (post != null)
-            {
-                post.JoinedNumber += 1;
-                _context.Add(obj);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction("HomePage");
-            }
+            return RedirectToAction("HomePage");
         }
-        return RedirectToAction("JoinedPost");
+        return RedirectToAction("Login");
     }
 
 
