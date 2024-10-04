@@ -99,15 +99,50 @@
             border-radius: 0px 10px 10px 0px;
         }
 
-
-        .decoration_pic {
+        .board-container{
             width: 97%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 40px;
-            object-position: 0px 80%;
+            height: 110%;
             margin-left: 20px;
             margin-right: 20px;
+        }
+
+         .view-member{
+            background-image: url("/Picture/bg 2_blur.jpg");
+            background-position: 0% 67%;
+            margin-left: 20px;
+            margin-right: 20px;
+            height:105%;
+            border-radius: 20px;
+         }
+
+         .header-member{
+            margin: 0px;
+            text-align: center;
+            padding: 5px;
+            color: #ffffff;
+            font-size: 25px;
+            font-weight: bold;
+         }
+         
+         .member-container{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 80%;
+         }
+
+         .display-member{
+             padding: 0px 0px 7px 5px;
+             color: #ffffff;
+             font-size: 18px;
+         }
+
+        .decoration_pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            object-position: 0px 67%;
         }
 
         .container1 {
@@ -217,7 +252,7 @@
 
         @@media only screen and (max-width: 1024px) {
 
-            .decoration_pic {
+            .board-container {
                 width: 90%;
             }
 
@@ -260,7 +295,7 @@
 
         @@media only screen and (max-width: 768px) {
 
-            .decoration_pic {
+            .board-container {
                 width: 87%;
             }
 
@@ -468,8 +503,10 @@
             
 
         <div class="display-board">
-            <img class="decoration_pic" src="/Picture/bg 2_blur.jpg">
-            <div id="display-member"></div>
+            @RenderSection("displayboard",required: false)
+            <div class="board-container">
+                <img class="decoration_pic" src="/Picture/bg 2.jpg">
+            </div>
         </div>
 
         <div class="posts-board">@RenderBody()</div>
