@@ -33,10 +33,15 @@
                 </div>
             </div>
             <div class="button-container">
-                 <button class="btn view-btn">CANCLE</button>
-                 <button class="btn view-btn" id="view-member" data-post-id="@post.PostId">VIEW MEMBER</button>
+                 <button class="btn view-btn">CLOSE</button>
+                    <button class="btn view-btn" id="view-member-@post.PostId" data-post-id="@post.PostId"  data-id="view">VIEW MEMBER</button>
             </div>
         </div>
     }
 </div>
+
+@section displayboard{
+    <div class="display-member"></div>
+}
+
 <script src="~/js/ViewMember.js" asp-append-version="true"></script>

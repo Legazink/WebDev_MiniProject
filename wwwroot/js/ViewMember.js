@@ -1,25 +1,40 @@
-﻿$(document).ready(function () {
-    $("#view-member").click(function () {
+﻿$(document).on('click', '.view-btn', function () {
+    const data = $(this).data("id");
+    console.log(data);
 
+    if (data == "view") {
         const postId = $(this).data("post-id");
         const stringId = String(postId);
+        const viewmember = "view-member-" + stringId;
+        console.log(viewmember);
 
         $.ajax({
             url: '/Home/GetPostMembers',
             type: 'POST',
             data: { postId: stringId },
             success: function (response) {
-                let board = $("#display-member");
+                let display = $(".display-member");
+                let board = $(".board-container");
+
                 board.empty();
+                display.empty();
                 console.log("No Refreshing");
+
+               
+                display.addClass("view-member");
+                display.append('<p class="header-member">Member</p>');
+
+                let memberDiv = $('<div class="member-container"></div>');
                 response.joinedMembers.result.forEach(function (member) {
-                    board.append('<p>' + member.username + '</p>');
+                    memberDiv.append('<li class="display-member">' + member.username + '</li>');
                 });
+                display.append(memberDiv);
             },
             error: function (xhr, status, error) {
-                alert('Error')
+                alert('Error');
             }
         });
-    });
-
+    } else {
+        console.log("Notpass");
+    }
 });
