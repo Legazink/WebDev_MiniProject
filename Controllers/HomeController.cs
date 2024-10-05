@@ -209,10 +209,17 @@ public class HomeController : Controller
         return Error();
     }
 
-    public IActionResult JoinedPost()
+    public async Task<IActionResult> JoinedPost()
     {
+        var accountID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var joined = await _context.JoinedAllPosts
+            .Where(JoinedAllPost => JoinedAllPost.Account.Id == accountID)
+            .Include(jp => jp.Account)
+            .Include(jp => jp.Post)
+            .ThenInclude(p => p.Account)
+            .ToListAsync();
         ViewData["Page"] = "Joined";
-        return View();
+        return View(joined);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -221,4 +228,9 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    //[HttpPost]
+    //public IActionResult CancelJoin(int postId)
+    //{
+
+    //}
 }

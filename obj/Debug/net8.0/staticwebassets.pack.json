@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\js\\CancelJoin.js",
+      "PackagePath": "staticwebassets\\js\\CancelJoin.js"
+    },
+    {
       "Id": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\js\\CreatPost.js",
       "PackagePath": "staticwebassets\\js\\CreatPost.js"
     },

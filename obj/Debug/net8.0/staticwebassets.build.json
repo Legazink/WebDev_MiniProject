@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AWyP3HchtmTerGz+gVbwX8VmkHskaY1Mda8bot4UOXo=",
+  "Hash": "S0CwGAq9nBz3wfUohAD6QlUPYRhDju0k1P12uJqVyCI=",
   "Source": "WebDev_MiniProject",
   "BasePath": "_content/WebDev_MiniProject",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\js\\CancelJoin.js",
+      "SourceId": "WebDev_MiniProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\",
+      "BasePath": "_content/WebDev_MiniProject",
+      "RelativePath": "js/CancelJoin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\CancelJoin.js"
     },
     {
       "Identity": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\wwwroot\\js\\CreatPost.js",
