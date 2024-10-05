@@ -3,6 +3,13 @@
 @{
     var currentUser = User.Identity.Name;
     var postData = Html.Raw(Json.Serialize(Model));
+    var year = DateTime.Now.ToString("yyyy");
+    var month = DateTime.Now.ToString("MM");
+    var day = DateTime.Now.ToString("dd");
+    var hour = DateTime.Now.ToString("HH");
+    var min = DateTime.Now.ToString("mm");
+    var sec = DateTime.Now.ToString("ss");
+    var alldate = DateTime.Now;
 }
 <style>
      .button-container {
@@ -44,5 +51,11 @@
 <script>
     window.currentUser = "@currentUser";
     window.postData = @postData;
+    window.year = parseInt("@year");
+    window.month = parseInt("@month"); 
+    window.day = parseInt("@day"); 
+    window.hour = parseInt("@hour"); 
+    window.min = parseInt("@min"); 
+    window.sec = parseInt("@sec");
 </script>
-<script src="~/js/HomePage.js"/>
+<script src="~/js/HomePage.js" asp-append-version="true"></script>
