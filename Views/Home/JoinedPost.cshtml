@@ -1,13 +1,22 @@
 ﻿@model IEnumerable<dynamic> // เปลี่ยนเป็น dynamic
+
 <style>
      .button-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             padding: 15px;
         }
     #joined_button{
             color: #FFFFFF;
         }
+
+    @@media only screen and (max-width: 1024px) {
+        .button-container {
+            justify-content: space-around;
+            align-self: center;
+            width: -webkit-fill-available;
+        }
+    }
 </style>
 
 
@@ -35,11 +44,15 @@
                         <input type="hidden" name="PostId" value="@join.Post.PostId"/>
                         <button id ="cancle-button-@join.Post.PostId" class="btn view-btn">CANCLE</button>
                     </form>
-
+                    <button class="btn view-btn" id="view-member-@join.Post.PostId" data-post-id="@join.Post.PostId" data-id="view">VIEW MEMBER</button>
                 </div>
             </div>
         }
 </div>
+ @section displayboard {
+     <div class="display-member"></div>
+ }
+ <script src="~/js/ViewMember.js" asp-append-version="true"></script>
 @* <script src="~/js/CancelJoin.js" asp-append-version="true"></script> *@
 
 
