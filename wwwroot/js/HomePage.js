@@ -24,7 +24,7 @@ postData.forEach(post => {
     console.log(postHour, postMin, postYear, postMonth, postDay);
     console.log(hour, min, year, month, day);
 
-    if (new Date(year, month, day, hour, min, sec) > new Date(postYear, postMonth, postDay, postHour, postMin, 0))
+    if (new Date(year, month, day, hour, min, sec) > new Date(postYear, postMonth, postDay, postHour, postMin, 0) && new Date(year, month, day, hour, min, sec) > new Date(postYear + 543, postMonth, postDay, postHour, postMin, 0))
     {
         var selector = "#join-button-";
         selector += postId;

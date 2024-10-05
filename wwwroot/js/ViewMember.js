@@ -1,5 +1,5 @@
 ﻿$(document).on('click', '.view-btn', function () {
-    const data = $(this).data("id");
+    const data = $(this).data("id"); 
     console.log(data);
 
     if (data == "view") {

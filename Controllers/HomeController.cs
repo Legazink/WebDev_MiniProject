@@ -130,8 +130,13 @@ public class HomeController : Controller
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
             post.Account = user;
+            JoinedAllPost joined = new JoinedAllPost();
+            joined.Post = post;
+            joined.Account = user;
             _context.Add(post);
+            _context.Add(joined);
             await _context.SaveChangesAsync();
+            
 
             return RedirectToAction("HomePage");
         }
@@ -149,11 +154,12 @@ public class HomeController : Controller
             JoinedAllPost joined = new JoinedAllPost();
             joined.Account = user;
             joined.Post = post;
-            List<JoinedAllPost> AllJoined = _context.JoinedAllPosts
-                .Where(jp => jp.Post.PostId == postId)
-                .ToList();
-            post.JoinedNumber = AllJoined.Count + 2;
             _context.Add(joined);
+            await _context.SaveChangesAsync();
+            List<JoinedAllPost> AllJoined = await _context.JoinedAllPosts
+                .Where(jp => jp.Post.PostId == postId)
+                .ToListAsync();
+            post.JoinedNumber = AllJoined.Count;
             await _context.SaveChangesAsync();
 
             return RedirectToAction("HomePage");
@@ -231,7 +237,7 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult CancelJoin(Guid PostId)
     {
-        var JoinedAllPost = _context.JoinedAllPosts.FirstOrDefault(j => j.Post.PostId == PostId);
+        var JoinedAllPost = _context.JoinedAllPosts.FirstOrDefault(jp => jp.Post.PostId == PostId && jp.Account.UserName == User.Identity.Name);
         var NumPost = _context.Posts.FirstOrDefault(p => p.PostId == PostId);
         if (JoinedAllPost != null) 
         {
