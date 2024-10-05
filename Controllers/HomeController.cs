@@ -228,9 +228,17 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    //[HttpPost]
-    //public IActionResult CancelJoin(int postId)
-    //{
-
-    //}
+    [HttpPost]
+    public IActionResult CancelJoin(Guid PostId)
+    {
+        var JoinedAllPost = _context.JoinedAllPosts.FirstOrDefault(j => j.Post.PostId == PostId);
+        var NumPost = _context.Posts.FirstOrDefault(p => p.PostId == PostId);
+        if (JoinedAllPost != null) 
+        {
+            NumPost.JoinedNumber = NumPost.JoinedNumber - 1;
+            _context.JoinedAllPosts.Remove(JoinedAllPost);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("Homepage");
+    }
 }
