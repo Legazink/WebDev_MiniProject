@@ -247,4 +247,16 @@ public class HomeController : Controller
         }
         return RedirectToAction("Homepage");
     }
+
+    [HttpPost]
+    public IActionResult DeletePost(Guid PostId)
+    {
+        var post = _context.Posts.FirstOrDefault(p => p.PostId == PostId);
+        if (post != null)
+        {
+            _context.Posts.Remove(post);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("Homepage");
+    }
 }
