@@ -240,7 +240,7 @@ namespace WebDev_MiniProject.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("JoinedAllPosts");
+                    b.ToTable("JoinedAllPosts", (string)null);
                 });
 
             modelBuilder.Entity("WebDev_MiniProject.Models.Entities.Post", b =>
@@ -260,6 +260,9 @@ namespace WebDev_MiniProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsClosed")
+                        .HasColumnType("bit");
+
                     b.Property<int>("JoinedNumber")
                         .HasColumnType("int");
 
@@ -278,7 +281,7 @@ namespace WebDev_MiniProject.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

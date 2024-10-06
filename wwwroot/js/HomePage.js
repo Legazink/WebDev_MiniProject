@@ -23,9 +23,11 @@ postData.forEach(post => {
 
     console.log("post",postHour, postMin, postYear, postMonth, postDay);
     console.log("time",hour, min, year, month, day);
-    console.log("th_post", postHour, postMin, postYear+543, postMonth, postDay);
+    console.log("th_post", postHour, postMin, postYear + 543, postMonth, postDay);
+    console.log("closed", post.isClosed);
 
-    if (new Date(year, month, day, hour, min, sec) > new Date(postYear, postMonth, postDay, postHour, postMin, 0) && new Date(year, month, day, hour, min, sec) > new Date(postYear + 543, postMonth, postDay, postHour, postMin, 0))
+    if ((new Date(year, month, day, hour, min, sec) > new Date(postYear, postMonth, postDay, postHour, postMin, 0) && new Date(year, month, day, hour, min, sec) > new Date(postYear + 543, postMonth, postDay, postHour, postMin, 0))
+        || post.isClosed == true)
     {
         var selector = "#join-button-";
         selector += postId;
@@ -49,6 +51,7 @@ postData.forEach(post => {
 
         button.innerText = "JOINED";
     }
+
     else {
         post.postJoinedAll.forEach(joined => {
             if (joined.joinedUserName == currentUser) {

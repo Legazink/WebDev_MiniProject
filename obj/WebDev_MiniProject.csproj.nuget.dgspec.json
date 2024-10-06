@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {}
+    "C:\\Users\\Acer NiTRO 5\\Desktop\\kmitl\\New folder\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {
+    "C:\\Users\\Acer NiTRO 5\\Desktop\\kmitl\\New folder\\WebDev_MiniProject\\WebDev_MiniProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
+        "projectUniqueName": "C:\\Users\\Acer NiTRO 5\\Desktop\\kmitl\\New folder\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
         "projectName": "WebDev_MiniProject",
-        "projectPath": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
-        "packagesPath": "C:\\Users\\INK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\INK\\Documents\\GitHub\\WebDev_MiniProject\\obj\\",
+        "projectPath": "C:\\Users\\Acer NiTRO 5\\Desktop\\kmitl\\New folder\\WebDev_MiniProject\\WebDev_MiniProject.csproj",
+        "packagesPath": "C:\\Users\\Acer NiTRO 5\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer NiTRO 5\\Desktop\\kmitl\\New folder\\WebDev_MiniProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\INK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Acer NiTRO 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

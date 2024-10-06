@@ -12,8 +12,8 @@ using WebDev_MiniProject.Data;
 namespace WebDev_MiniProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241005143605_csstest")]
-    partial class csstest
+    [Migration("20241006065846_1")]
+    partial class _1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -262,6 +262,9 @@ namespace WebDev_MiniProject.Migrations
                     b.Property<string>("GameName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsClosed")
+                        .HasColumnType("bit");
 
                     b.Property<int>("JoinedNumber")
                         .HasColumnType("int");

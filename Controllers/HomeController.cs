@@ -99,6 +99,7 @@ public class HomeController : Controller
                     p.Date,
                     p.Time,
                     p.PostId,
+                    p.IsClosed,
                     PostJoinedAll = _context.JoinedAllPosts
                     .Where(jp => jp.Post.PostId == p.PostId)
                     .Select(jp => new
@@ -183,6 +184,7 @@ public class HomeController : Controller
                 post.Place,
                 post.Date,
                 post.Time,
+                post.IsClosed,
                 Username = post.Account.UserName
             })
             .ToListAsync();
@@ -255,6 +257,18 @@ public class HomeController : Controller
         if (post != null)
         {
             _context.Posts.Remove(post);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("Homepage");
+    }
+
+    [HttpPost]
+    public IActionResult ClosePost(Guid PostId)
+    {
+        var post = _context.Posts.FirstOrDefault(p => p.PostId == PostId);
+        if (post != null)
+        {
+            post.IsClosed = true;
             _context.SaveChanges();
         }
         return RedirectToAction("Homepage");

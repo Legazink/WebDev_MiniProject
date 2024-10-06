@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<dynamic> 
 
+@{
+    var myPosts = Html.Raw(Json.Serialize(Model));
+}
+
 <style>
     #posted_button{
             color: #FFFFFF;
@@ -43,7 +47,10 @@
                 </div>
             </div>
             <div class="button-container">
-                 <button class="btn view-btn">CLOSE</button>
+                <form asp-controller="Home" asp-action="ClosePost" method="post">
+                    <input type="hidden" name="PostId" value="@post.PostId" />
+                    <button id="close-button-@post.PostId" class="btn view-btn">CLOSE</button>
+                </form>
                     <button class="btn view-btn" id="view-member-@post.PostId" data-post-id="@post.PostId"  data-id="view">VIEW MEMBER</button>
             </div>
         </div>
@@ -53,6 +60,9 @@
 @section displayboard{
     <div class="display-member"></div>
 }
-
+<script>
+    window.myPosts = @myPosts;
+</script>
+<script src="~/js/MyPost.js" asp-append-version="true"></script>
 <script src="~/js/ViewMember.js" asp-append-version="true"></script>
 @* <script src="~/js/DeletePost.js" asp-append-version="true"></script> *@

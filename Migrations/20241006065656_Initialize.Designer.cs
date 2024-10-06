@@ -12,8 +12,8 @@ using WebDev_MiniProject.Data;
 namespace WebDev_MiniProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241006005702_ink2")]
-    partial class ink2
+    [Migration("20241006065656_Initialize")]
+    partial class Initialize
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
